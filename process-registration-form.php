@@ -1,15 +1,16 @@
-<?
+<?php
 $email = $_POST["email"];
 $firstName = $_POST["fName"];
 $lastName = $_POST["lName"];
 $username = $_POST["username"];
-$password = $_POST["password"];
+$userPassword1 = $_POST["password1"];
+$userPassword2 = $_POST["password2"];
 // Creating variables to save form data from HTML
 
 $host = "localhost";
 $username = "root";
 $password = "";
-$dbname = "message_db";
+$dbname = "bookstore_db";
 // Saving database information into variables for easy access
 
 $mysqli = new mysqli($host, $username, $password, $dbname, 3307);
@@ -21,8 +22,8 @@ if ($mysqli->connect_error) {
     // connection_error returns a description of last connection error
 }
 
-$sql = "INSERT INTO message (firstName, lastName, email, phone, reason, PreferredGuest)
-Values ('$email', '$firstName', '$lastName', '$username', '$password')";
+$sql = "INSERT INTO users (user_id , email, fName, lName, username, password)
+Values ('' ,'$email', '$firstName', '$lastName', '$username', '$userPassword1')";
 // saving the sql insert into statement as a variable. The values are the data we got
 // from the html form.
 
@@ -37,25 +38,5 @@ if ($mysqli->query($sql) === TRUE) {
 echo "Record saved"; // If we reach this point the record is saved and promted to the user.
 
 $mysqli->close(); // Close connection
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ?>
