@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="BookstoreIcon.png" />
+    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="script.js" charset="utf-8"></script>
+    <title>Bookstore</title>
+</head>
+<body>
+<!-- Top Navigation Menu -->
+  <div class="topnav">
+    <a href="" class="active"><img class="logo-img" src="BookstoreLogo.png" alt="BookstoreLogo"></a>
+    <!-- Navigation links (hidden by default) -->
+    <div id="myLinks">
+      <a href="#forums">Forums</a>
+      <a href="#contact">Contact</a>
+      <a href="#about">About</a>
+      <a href="#settings">Settings</a>
+    </div>
+    <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+  <div class="second-lv-btns">
+    <div>
+      <a href="BookStore.html">Home</a>
+    </div>
+    <div>
+      <a href="#CreateListing">Create Listing</a>
+    </div>
+    <div>
+      <a href="#LatestAds">Latest ads</a>
+    </div>
+    <div>
+      <a href="#Categories">Categories</a>
+    </div>
+    <div>
+      <a href="#MyAds">My Ads</a>
+    </div>
+    <div>
+      <a href="#Wishlist">Wishlist</a>
+    </div>
+    <div>
+      <button>Register</button>
+      <button id="currentPage">Login</button>
+    </div>
+  </div>
+
+    <form class="login-form">
+        <h1>Login</h1>
+        <label for="email">Eamil:</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email">
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password">
+
+        <input type="submit" value="Login">
+    </form>
+</body>
+</html>

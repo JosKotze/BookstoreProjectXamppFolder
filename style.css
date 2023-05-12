@@ -1,0 +1,424 @@
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.logo-img {
+    width: 15%;
+    min-width: 100px;
+}
+/*
+
+.grid-container{
+    display: grid;
+    grid-template-columns: [first] 40px [line2] 50px [line3] auto [col4-start] 50px [five] 40px [end];
+    grid-template-rows: [row1-start] 25% [row1-end] 100px [third-line] auto [last-line];
+}
+
+.top-nav-bar{
+    grid-column-start: 1;
+    grid-column-end: span col4-start;
+    grid-row-start: 2;
+    grid-row-end: span 2;
+}
+*/
+
+/* Style the navigation menu */
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+  position: relative;
+}
+
+/* Hide the links inside the navigation menu (except for logo/home) */
+.topnav #myLinks {
+  display: none;
+  text-align: right;
+}
+
+/* Style navigation menu links */
+.topnav a {
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  display: block;
+}
+
+/* Style the hamburger menu */
+.topnav a.icon {
+  background: black;
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+/* Add a grey background color on mouse-over */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Style the active link (or home/logo) */
+.active {
+  background-color: lightgray;
+  color: white;
+}
+
+.second-lv-btns{
+  background-color: #333;
+  overflow: hidden;
+}
+
+.second-lv-btns a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.second-lv-btns button{
+  background-color: lightgray;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 6px;
+  margin-bottom: 4px;
+  margin-left: 2px;
+}
+
+.second-lv-btns button:hover{
+  color: white;
+  background-color: #e72913;
+}
+
+.second-lv-btns button:active{
+  color: white;
+  background-color: #e72950;
+}
+
+.second-lv-btns a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.second-lv-btns a.CurrentPage {
+  background-color: #e72913;
+  color: white;
+}
+
+/* */
+
+.slider {
+  width: 74%;
+  overflow: hidden;
+  margin: auto;
+}
+
+.slides {
+  display: flex;
+  align-items: center;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  /*
+  scroll-snap-points-x: repeat(300px);
+  scroll-snap-type: mandatory;
+  */
+}
+
+.slides::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.slides::-webkit-scrollbar-thumb {
+  background: black;
+  border-radius: 10px;
+}
+
+.slides::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.slides::-webkit-scrollbar-button
+{
+  border-style: double;
+  height: 40px;
+  width: 20px;
+  
+}
+.slides::-webkit-scrollbar-button:hover {
+  border-width: 5px 5px 5px 5px;
+}
+.slides::-webkit-scrollbar-button:horizontal:decrement
+{
+  border-width: 7px 14px 7px 0;
+  border-color: transparent #404040 transparent transparent;
+}
+.slides::-webkit-scrollbar-button:horizontal:increment
+{
+  border-width: 7px 0 7px 14px;
+  border-color: transparent transparent transparent #404040;
+}
+
+.slides > div {
+  margin-top: 10px;
+  scroll-snap-align: start;
+  width: 300px;
+  height: 320px;
+  margin-right: 100px;
+  border-radius: 10px;
+  transform-origin: center center;
+  transform: scale(1);
+  transition: transform 0.5s;
+  position: relative;
+  
+  justify-content: center;
+  align-items: center;
+}
+
+.slider-title {
+  margin-top: 3px;
+  margin-bottom: 3px;
+  text-align: center;
+}
+
+.slides img:hover {
+   transform: scale(0.9);
+   transition: 400ms;
+}
+
+
+form {
+  background-color: #d3d3d3;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 50px auto;
+  width: 400px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.CreateListing-form input, .CreateListing-form select, .login-form input, .Registration-form input{
+  border-radius: 5px;
+  margin-bottom: 25px;
+  height: 40px;
+  width: 100%;
+  border: 2px;
+  border-style: solid;
+  border-color: #333;
+}
+
+.CreateListing-form input:hover, .CreateListing-form select:hover, .login-form input:hover, .Registration-form input:hover {
+  border: 2px;
+  border-style: solid;
+  border-color: #4bc24f;
+}
+
+.select-scrollbar {
+  overflow-y:auto;
+}
+
+.select-scrollbar option {
+  overflow-y:scroll;
+}
+
+input[type="radio"] {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+}
+
+.uploadPic {
+  text-align: center;
+  border-radius: 5px;
+  margin-bottom: 25px;
+  height: 100%;
+  width: 100%;
+  border: 2px;
+  border-style: solid;
+  border-color: #333;
+  background-color: white;
+}
+
+.uploadPic:hover {
+  border: 2px;
+  border-style: solid;
+  border-color: #4bc24f;
+  color: #4bc24f;
+}
+
+.uploadPic img {
+  display: block;
+  width: 20%;
+  height: auto;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.uploadPic input{
+  display: none;
+}
+
+.uploadPic label{
+  margin-top: 5px;
+  cursor:pointer;
+}
+
+.price_style {
+  position: relative;
+}
+
+.price_style input { 
+  width: 94%;
+  padding-left: 5%;
+}
+
+.price_style:before {
+  position: absolute;
+  top: 0;
+  content:"R";
+  font-size: 14px;
+  left: 5px;
+}
+
+/*
+.select-scrollbar::-webkit-scrollbar {
+  width: 1em;
+}
+
+.select-scrollbar::-webkit-scrollbar-track {
+  height: 20px;
+  background-color: #d3d3d3;
+}
+ 
+.select-scrollbar::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+}
+*/
+
+input[type="submit"] {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #4bc24f;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: -5px;
+  font-size: 36px;
+  color: #333;
+}
+
+.listings-container {
+  max-width: 900px;
+  margin: 20px auto;
+}
+
+.listings-container .books-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.listings-container .book-advert {
+  position: relative;
+  margin: 10px;
+  gap: 24px;
+  padding: 24px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 24px -8px rgba(0, 0, 0, 0.3);
+  transition: transform ease 0.5s, box-shadow ease 0.5s;
+  display: flex;
+  flex-direction: column;
+}
+
+.listings-container .book-advert:hover {
+  transform: translateY(-5px);
+  box-shadow: 2px 10px 10px 2px rgba(0, 0, 0, 0.2);
+}
+
+.listings-container .book-advert img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: -20px;
+  height: auto;
+  width: auto;
+  max-height: 800px;
+  max-width: 200px;
+}
+
+.listings-container .details label, .details p {
+  display: inline;
+}
+
+@media only screen and (max-width: 450px) {
+  .listings-container .book-advert img {
+    height: 150px;
+    width: auto;
+  }
+}
+
+@media (max-width: 940px){
+  .listings-container .books-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px){
+  .listings-container .books-grid {
+    grid-template-columns: 1fr;
+    max-width: 350px;
+    margin: 0 auto;
+  }
+}
+
+.book-advert .book-title {
+  font-size: 20px;
+  color: #333;
+  padding: 8px 0;
+}
+
+.book-advert .details {
+  flex: 1;
+  font-size: 14px;
+  margin-top: -30px;
+  color: #333;
+}
+
+.listings-container .view-add-btn {
+  border: 1px solid lightgrey;
+  background-color: lightgray;
+  color: black;
+  padding: 8px 16px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.listings-container .view-add-btn:hover {
+  background-color: #3b3b3b;
+  color: white;
+}

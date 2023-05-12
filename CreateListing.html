@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="BookstoreIcon.png" />
+    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="script.js" charset="utf-8"></script>
+    <title>Bookstore</title>
+</head>
+<body>
+<!-- Top Navigation Menu -->
+  <div class="topnav">
+    <a href="" class="active"><img class="logo-img" src="BookstoreLogo.png" alt="BookstoreLogo"></a>
+    <!-- Navigation links (hidden by default) -->
+    <div id="myLinks">
+      <a href="#forums">Forums</a>
+      <a href="#contact">Contact</a>
+      <a href="#about">About</a>
+      <a href="#settings">Settings</a>
+    </div>
+    <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+  <div class="second-lv-btns">
+    <div>
+      <a href="BookStore.html">Home</a>
+    </div>
+    <div>
+      <a class="CurrentPage" href="#CreateListing">Create Listing</a>
+    </div>
+    <div>
+      <a href="#LatestAds">Latest ads</a>
+    </div>
+    <div>
+      <a href="#Categories">Categories</a>
+    </div>
+    <div>
+      <a href="#MyAds">My Ads</a>
+    </div>
+    <div>
+      <a href="#Wishlist">Wishlist</a>
+    </div>
+    <div>
+      <button>Register</button>
+      <button>Login</button>
+    </div>
+  </div>
+    <form action="script.js" class="CreateListing-form">
+        <h1>Create a listing</h1>
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" placeholder="Enter the title of the book">
+
+        <label for="author">Author:</label>
+        <input type="text" id="author" name="author" placeholder="Enter author of the book">
+
+        <label for="pageNum">Number of pages:</label>
+        <input type="text" id="pageNum" name="pageNum" placeholder="Enter the number of page in the book">
+
+        <label for="publisher">Publisher:</label>
+        <input type="text" id="publisher" name="publisher" placeholder="Enter the name of the publisher">
+
+        <label for="condition">Condition:</label>
+        <select id="condition" name="condition">
+            <option value="New">New</option>
+            <option value="Excellent">Excellent</option>
+            <option value="Good">Good</option>
+            <option value="Used">Used</option>
+            <option value="Poor">Poor</option>
+            <option value="Broken">Broken</option>
+        </select>
+
+        <label for="format">Format:</label>
+        <select id="format" name="format">
+            <option value="PDF">PDF</option>
+            <option value="Hardcover">Hardcover</option>
+            <option value="Paperbacks">Paperback</option>
+        </select>
+
+        <label for="genre">Genre:</label>
+        <select class="select-scrollbar" id="genre" name="genre">
+          <option value="Action">Action</option>
+          <option value="Academic">Academic (for the students)</option>
+          <option value="Adventure">Adventure</option>
+          <option value="Autobiography">Autobiography</option>
+          <option value="Biography">Biography</option>
+          <option value="Business">Business</option>
+          <option value="Children's">Children's</option>
+          <option value="Comedy">Comedy</option>
+          <option value="Crime">Crime</option>
+          <option value="Drama">Drama</option>
+          <option value="Dystopian">Dystopian</option>
+          <option value="Fantasy">Fantasy</option>
+          <option value="Fiction">Fiction</option>
+          <option value="Historical Fiction">Historical Fiction</option>
+          <option value="Horror">Horror</option>
+          <option value="Memoir">Memoir</option>
+          <option value="Mystery">Mystery</option>
+          <option value="Non-fiction">Non-fiction</option>
+          <option value="Paranormal">Paranormal</option>
+          <option value="Philosophy">Philosophy</option>
+          <option value="Poetry">Poetry</option>
+          <option value="Religion/Spirituality">Religion/Spirituality</option>
+          <option value="Romance">Romance</option>
+          <option value="Science">Science</option>
+          <option value="Science Fiction">Science Fiction</option>
+          <option value="Self-help">Self-help</option>
+          <option value="Suspense">Suspense</option>
+          <option value="Thriller">Thriller</option>
+          <option value="Travel">Travel</option>
+          <option value="Western">Western</option>
+          <option value="Young Adult">Young Adult</option>
+        </select>
+
+        <label for="uploadPicture">Coverpage:</label>
+        <div class="uploadPic">
+          <label for="uploadPicture">Click to select image
+            <br/>
+            <img src="BookCoverIcon.png" alt="BookCoverIcon"></img>
+            <input type="file" id="uploadPicture" name="uploadPicture" placeholder="Upload a picture of the coverpage">
+            <br/>
+            <span id="imageName"></span>
+          </label>
+        </div>
+
+        <label for="city">City:</label>
+        <select class="select-scrollbar" id="city" name="city">
+          <option value="Alberton">Alberton</option>
+          <option value="Aliwal North">Aliwal North</option>
+          <option value="Beaufort West">Beaufort West</option>
+          <option value="Bedfordview">Bedfordview</option>
+          <option value="Benoni">Benoni</option>
+          <option value="Bethal">Bethal</option>
+          <option value="Bhisho">Bhisho</option>
+          <option value="Bloemfontein">Bloemfontein</option>
+          <option value="Bluewater Bay">Bluewater Bay</option>
+          <option value="Boksburg">Boksburg</option>
+          <option value="Bredasdorp">Bredasdorp</option>
+          <option value="Breidbach">Breidbach</option>
+          <option value="Breyten">Breyten</option>
+          <option value="Brits">Brits</option>
+          <option value="Bronkhorstspruit">Bronkhorstspruit</option>
+          <option value="Cape Town">Cape Town</option>
+          <option value="Carnarvon">Carnarvon</option>
+          <option value="Centurion">Centurion</option>
+          <option value="Chrissiesmeer">Chrissiesmeer</option>
+          <option value="Citrusdal">Citrusdal</option>
+          <option value="Cradock">Cradock</option>
+          <option value="Durban">Durban</option>
+          <option value="East London">East London</option>
+          <option value="Edenvale">Edenvale</option>
+          <option value="Elsburg">Elsburg</option>
+          <option value="Frankfort">Frankfort</option>
+          <option value="Ga-Kgapane">Ga-Kgapane</option>
+          <option value="Genadendal">Genadendal</option>
+          <option value="George">George</option>
+          <option value="Germiston">Germiston</option>
+          <option value="Grahamstown">Grahamstown</option>
+          <option value="Jeffrey’s Bay">Jeffrey’s Bay</option>
+          <option value="Johannesburg">Johannesburg</option>
+          <option value="Katlehong">Katlehong</option>
+          <option value="Kenton on Sea">Kenton on Sea</option>
+          <option value="Khayelitsha">Khayelitsha</option>
+          <option value="Kimberley">Kimberley</option>
+          <option value="Klerksdorp">Klerksdorp</option>
+          <option value="Kroonstad">Kroonstad</option>
+          <option value="Krugersdorp">Krugersdorp</option>
+          <option value="Kuilsrivier">Kuilsrivier</option>
+          <option value="Kuruman">Kuruman</option>
+          <option value="Lorraine">Lorraine</option>
+          <option value="Lydenburg">Lydenburg</option>
+          <option value="Mahikeng">Mahikeng</option>
+          <option value="Malmesbury">Malmesbury</option>
+          <option value="Middelburg">Middelburg</option>
+          <option value="Mitchells Plain">Mitchells Plain</option>        
+        </select>
+
+        <label for="province">Province:</label>
+        <select class="select-scrollbar" id="province" name="province"> 
+          <option value="Mpumalanga">Mpumalanga</option>
+          <option value="Eastern Cape">Eastern Cape</option>
+          <option value="Free State">Free State</option>
+          <option value="Gauteng">Gauteng</option>
+          <option value="KwaZulu-Natal">KwaZulu-Natal</option>
+          <option value="Limpopo">Limpopo</option>
+          <option value="Northern Cape">Northern Cape</option>
+          <option value="North West">North West</option>
+          <option value="Western Cape">Western Cape</option>
+        </select>
+
+        <label for="shipping">Shipping:</label>
+        <input type="radio" name="shipping" value="Yes" checked> Yes
+        <input type="radio" name="shipping" value="No"> No
+
+        <label for="collection">Collection:</label>
+        <input type="radio" name="collection" value="Yes" checked> Yes
+        <input type="radio" name="collection" value="No"> No
+
+        <label for="price">Price:</label>
+        <span class="price_style"> 
+          <input type="number" id="price" name="price" placeholder="..."/>
+        </span>
+        <input type="submit" value="Post Listing" onclick="createListingArray()">
+    </form>
+</body>
+</html>

@@ -1,0 +1,114 @@
+
+const listings = [
+  {
+    title: title,
+    author: author,
+    pageNum: pageNum,
+    publisher: publisher,
+    condition: condition,
+    format: format,
+    genre: genre,
+    coverpage: coverpage,
+    city: city,
+    province: province,
+    shipping: shipping,
+    collection: collection,
+    price: price
+  },
+];
+
+const listingsContainer = document.querySelector(".listings-container .books-grid");
+
+const createListingCard = () => {
+  listings.forEach((listing) => {
+    let bookListing = document.createElement("div");
+    bookListing.classList.add("book-advert");
+
+    let coverpage = document.createElement("img");
+    image.src = listing.image;
+
+    let title = document.createElement("h3");
+    title.innerHTML = listing.title;
+    title.classList.add("book-title");
+
+    let details = document.createElement("div");
+    details.innerHTML = listing.details;
+    details.classList.add("details");
+
+        let t1 = document.createElement("label");
+        details.innerHTML = "Price: ";
+
+        let price = document.createElement("p");
+        price.innerHTML = listing.price;
+        price.classList.add("price");
+
+        let t2 = document.createElement("label");
+        details.innerHTML = "Pages: ";
+
+        let pages = document.createElement("p");
+        pages.innerHTML = listing.pages;
+        pages.classList.add("pages");
+    
+    let viewAddBtn = document.createElement("a");
+    viewAddBtn.href = listing.link; // Moet nog link add na n listing page
+    viewAddBtn.innerHTML = "View Add";
+    viewAddBtn.classList.add("viewAddBtn");
+
+    bookListing.appendChild("coverpage");
+    bookListing.appendChild("title");
+    bookListing.appendChild("details");
+    bookListing.appendChild("viewAddBtn");
+
+    listingsContainer.appendChild(bookListing);
+    window.alert("Everything appended");
+  })
+}
+
+
+function createListingArray(listings) {
+  var title = document.getElementById('title').innerHTML;
+  var author = document.getElementById('author').innerHTML;
+  var pageNum = document.getElementById('pageNum').innerHTML;
+  var publisher = document.getElementById('publisher').innerHTML;
+  var condition = document.getElementById('condition').innerHTML;
+  var format = document.getElementById('format').innerHTML;
+  var genre = document.getElementById('genre').innerHTML;
+  var coverpage = document.getElementById('uploadPicture').innerHTML;
+  var city = document.getElementById('city').innerHTML;
+  var province = document.getElementById('province').innerHTML;
+  var shipping = document.getElementById('shipping').innerHTML;
+  var collection = document.getElementById('collection').innerHTML;
+  var price = document.getElementById('price').innerHTML;
+
+  const listingObject = {
+    title: title,
+    author: author,
+    pageNum: pageNum,
+    publisher: publisher,
+    condition: condition,
+    format: format,
+    genre: genre,
+    coverpage: coverpage,
+    city: city,
+    province: province,
+    shipping: shipping,
+    collection: collection,
+    price: price
+  };
+
+  listings.unshift(listingObject); // add object to the start of array for latest posts
+
+  createListingCard();
+  alert("Listing created");
+
+}
+
+
+function myFunction() {
+    var x = document.getElementById("myLinks");
+    if (x.style.display === "block") {
+      x.style.display = "none";
+    } else {
+      x.style.display = "block";
+    }
+  }
