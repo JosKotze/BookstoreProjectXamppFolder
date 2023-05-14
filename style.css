@@ -3,9 +3,14 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+html, body { 
+  padding:0;
+  margin:0;
+}
+
 .logo-img {
-    width: 15%;
-    min-width: 100px;
+  width: 15%;
+  min-width: 100px;
 }
 /*
 
@@ -23,16 +28,27 @@ body {
 }
 */
 
+.topbanner .topnav{
+  display: block;
+  width: 100%;
+}
+
 /* Style the navigation menu */
 .topnav {
   background: linear-gradient(139deg, rgba(231,41,19,1) 0%, rgba(51,51,51,1) 100%);
   position: relative;
 }
 
-/* Hide the links inside the navigation menu (except for logo/home) */
+/* Hide the links inside the navigation menu (except for logo/home)
 .topnav #myLinks {
   display: none;
-  text-align: right;
+  text-align: justify;
+}
+*/
+
+.topnav #myLinks {
+  display: none;
+  text-align: justify;
 }
 
 /* Style navigation menu links */
@@ -43,6 +59,17 @@ body {
   font-size: 17px;
   display: block;
 }
+
+/*
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+*/
 
 /* Style the hamburger menu */
 .topnav a.icon {
@@ -61,7 +88,7 @@ body {
 
 /* Style the active link (or home/logo) */
 .active {
-  background-color: lightgray;
+  background-color: lightgrey;
   color: white;
 }
 
@@ -80,8 +107,8 @@ body {
 }
 
 .second-lv-btns button{
-  background-color: lightgray;
-  color: white;
+  background-color: #ddd;
+  color: #333;
   padding: 10px;
   border: none;
   border-radius: 5px;
@@ -109,6 +136,12 @@ body {
 .second-lv-btns a.CurrentPage {
   background-color: #e72913;
   color: white;
+}
+
+@media (max-width: 400px) {
+  .second-lv-btns a {
+    font-size: 14px;
+  }
 }
 
 /* */
@@ -219,6 +252,13 @@ label {
   border: 2px;
   border-style: solid;
   border-color: #333;
+}
+
+
+@media (max-width: 450px){
+  .login-form {
+    width: fit-content;
+  }
 }
 
 .CreateListing-form input:hover, .CreateListing-form select:hover, .login-form input:hover, .Registration-form input:hover {
