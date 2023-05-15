@@ -35,8 +35,13 @@ if ($mysqli->query($sql) === TRUE) {
     // Else some sort of error to be described.
 }
 
-echo "Record saved"; // If we reach this point the record is saved and promted to the user.
+// If we reach this point the record is saved and promted to the user.
 
 $mysqli->close(); // Close connection
 
+if (isset($_POST["Register-btn"])) {
+    // (deal with the submitted fields here) 
+    header("Location: BookStore.html");
+    exit;
+}
 ?>

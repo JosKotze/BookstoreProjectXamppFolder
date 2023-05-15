@@ -105,10 +105,46 @@ function createListingArray(listings) {
 
 
 function myFunction() {
-    var x = document.getElementById("myLinks");
-    if (x.style.display === "block") {
-      x.style.display = "none";
-    } else {
-      x.style.display = "block";
-    }
+  var x = document.getElementById("myLinks");
+  if (x.style.display === "block") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "block";
   }
+}
+
+function redirectToHomepage()
+{
+  window.location.href = "BookStore.html";
+}
+
+function CompareAndValidatePassword() {
+  var pass1 = document.getElementById("password1").value;
+  var pass2 = document.getElementById("password2").value;
+  let UserPassBool = false;
+
+  if (pass1.length < 8){
+    alert("password too short");
+    UserPassBool = false;
+  }
+  
+  if (!/[A-Z]/.test(pass1) || !/[a-z]/.test(pass1) || !/[0-9]/.test(pass1) || !/[!@#$%^&*()\-=_+[\]{}|\\:;"'<>,.?]/.test(pass1))
+  {
+    alert("Your password needs at least one uppercase letter, one lowercase letter, one number, and one special character.")
+    UserPassBool = false;
+  }
+
+  if(pass1 !== pass2)
+  {
+    alert("Your passwords do not match.");
+    UserPassBool = false;
+  }
+  else{
+    alert("You may proceed.");
+    UserPassBool = true;
+  } 
+
+  if(UserPassBool == true){
+    redirectToHomepage();
+  }
+}

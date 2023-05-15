@@ -50,7 +50,6 @@
       <button id="currentPage">Login</button>
     </div>
   </div>
-
     <form action="process-registration-form.php" method="post" class="Registration-form">
         <h1>Registration</h1>
         <label for="email">Eamil:</label>
@@ -70,20 +69,7 @@
 
         <label for="password2">Password:</label>
         <input type="password" id="password2" name="password2" placeholder="Re-enter your password">
-        <input type="submit" value="Register" onclick="ComparePassword()">
+        <input type="submit" value="Register" onclick="CompareAndValidatePassword()">
     </form>
-    <script>
-        function ComparePassword() {
-          var pass1 = document.getElementById("password1").value;
-          var pass2 = document.getElementById("password2").value;
-          if(pass1 !== pass2)
-          {
-            alert("Youre passwords do not match");
-          }
-          else{
-            alert("You may proceed");
-          }
-        }
-        </script>
 </body>
 </html>
