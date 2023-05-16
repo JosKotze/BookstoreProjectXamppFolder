@@ -51,25 +51,32 @@
     </div>
   </div>
     <form action="process-registration-form.php" method="post" class="Registration-form">
-        <h1>Registration</h1>
-        <label for="email">Eamil:</label>
-        <input type="email" id="email" name="email" placeholder="Enter your email">
+      <h1>Registration</h1>
+      <label for="email">Eamil:</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email">
 
-        <label for="fName">First name:</label>
-        <input type="text" id="fName" name="fName" placeholder="Enter your first name">
+      <label for="fName">First name:</label>
+      <input type="text" id="fName" name="fName" placeholder="Enter your first name">
 
-        <label for="lName">Last name:</label>
-        <input type="text" id="lName" name="lName" placeholder="Enter your last name">
+      <label for="lName">Last name:</label>
+      <input type="text" id="lName" name="lName" placeholder="Enter your last name">
 
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" placeholder="Enter your username">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" placeholder="Enter your username">
 
-        <label for="password2">Password:</label>
-        <input type="password" id="password1" name="password1" placeholder="Enter your password">
+      <label for="password2">Password:</label>
+      <input type="password" id="password1" name="password1" placeholder="Enter your password">
 
-        <label for="password2">Password:</label>
-        <input type="password" id="password2" name="password2" placeholder="Re-enter your password">
-        <input type="submit" value="Register" onclick="CompareAndValidatePassword()">
+      <label for="password2">Password:</label>
+      <input type="password" id="password2" name="password2" placeholder="Re-enter your password">
+      <input id="Register-btn" type="submit" value="Register" onclick="CompareAndValidatePassword()">
     </form>
+
+    <div class="thankyou-popup">
+      <h2>Thank You!</h2>
+      <p>You have successfully registered.</p>
+      <button type="button">OK</button>
+    </div>
+    
 </body>
 </html>
