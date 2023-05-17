@@ -4,6 +4,7 @@ body {
 }
 
 html, body { 
+  height: 100%;
   padding:0;
   margin:0;
 }
@@ -142,6 +143,59 @@ html, body {
   .second-lv-btns a {
     font-size: 14px;
   }
+}
+
+.Banner-Container {
+  /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+  background-image: url("https://assets.weforum.org/article/image/responsive_big_webp_JMF96ETfn1kSViVnUou1Z0XIDwWcPpT5mrPc7-ytpAc.webp");
+
+  /* Set a specific height */
+  height: 25%;
+
+  /* Position and center the image to scale nicely on all screens */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+/* Place text in the middle of the image */
+.Banner h1 {
+  
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+.Banner button{
+  display:inline-block;
+  text-align: center;
+  margin: 0 20px;
+  background-color: #ddd;
+  color: #333;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 24px;
+  font-weight: bold;
+  width: 350px;
+}
+
+.Banner button:hover{
+  color: white;
+  background-color: #e72913;
+  font-size: 20px;
+  transform: scale(0.9);
+  transition: 400ms;
+}
+
+.Banner button:active{
+  background-color: #4bc24f;
+  transform: matrix(1, 1, 1, -1, 1, 1);
+  transition: 400ms;
 }
 
 /* */
@@ -336,22 +390,30 @@ input[type="radio"] {
   left: 5px;
 }
 
-.thankyou-popup {
+.popup {
   width: 400px;
-  background-color: tan;
+  background-color: #4bc24f;
   border-style: solid;
   border-width: 2px;
   border-color: #333;
   border-radius: 6px;
   position: absolute;
-  top: 50%;
+  top: 0;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(0.1);
   text-align: center;
   padding: 0 30px 30px;
+  visibility: hidden;
+  transition: transform 0.4s top 0.4s;
 }
 
-.thankyou-popup button {
+.display-popup {
+  visibility: visible;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.popup button {
   border-radius: 5px;
   margin-top: 5px;
   height: 40px;
@@ -361,10 +423,12 @@ input[type="radio"] {
   border-color: #333;
 }
 
-.thankyou-popup button:hover {
+.popup button:hover {
   background-color: #ebebeb;
-  box-shadow: 2px 2px 2px 0px gray;
+  box-shadow: 2px 3px 2px 0px rgb(109, 109, 109);
 }
+
+
 
 /*
 .select-scrollbar::-webkit-scrollbar {

@@ -148,3 +148,13 @@ function CompareAndValidatePassword() {
     redirectToHomepage();
   }
 }
+
+let popup = document.getElementById("popup");
+
+function displayPopup() {
+  popup.classList.add("display-popup");
+}
+
+function closePopup() {
+  popup.classList.remove("close-popup");
+}
