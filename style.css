@@ -170,8 +170,6 @@ html, body {
 }
 
 .Banner button{
-  display:inline-block;
-  text-align: center;
   margin: 0 20px;
   background-color: #ddd;
   color: #333;
@@ -184,17 +182,19 @@ html, body {
   width: 350px;
 }
 
+.BannerBtnVertical-center {
+  position: absolute;
+  top: 55%;
+  -ms-transform: translateY(40%);
+  transform: translateY(40%);
+  transform: translateX(15%);
+}
+
 .Banner button:hover{
   color: white;
   background-color: #e72913;
   font-size: 20px;
   transform: scale(0.9);
-  transition: 400ms;
-}
-
-.Banner button:active{
-  background-color: #4bc24f;
-  transform: matrix(1, 1, 1, -1, 1, 1);
   transition: 400ms;
 }
 
