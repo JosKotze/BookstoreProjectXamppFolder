@@ -1,0 +1,56 @@
+<?php
+$email = $_POST["title"];
+$firstName = $_POST["author"];
+$lastName = $_POST["pageNum"];
+$username = $_POST["publisher"];
+$condition = $_POST["condition"];
+$format = $_POST["format"];
+$genre = $_POST["genre"];
+
+$filename = $_FILES["uploadPicture"]["name"];
+
+$city = $_POST["city"];
+$province = $_POST["province"];
+$shipping = $_POST["shipping"];
+$collection = $_POST["collection"];
+$price = $_POST["price"];
+// Creating variables to save form data from HTML
+
+$host = "localhost";
+$username = "root";
+$password = "";
+$dbname = "bookstore_db";
+// Saving database information into variables for easy access
+
+$mysqli = new mysqli($host, $username, $password, $dbname, 3307);
+// Creating new mysqli object to open a new connnection to mySQL server
+
+if ($mysqli->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+    // the die() function prints a message and exits the current script
+    // connection_error returns a description of last connection error
+}
+
+$sql = "INSERT INTO listings (listing_id, email, firstName, lastName, username, condition, format, genre, filename, city, province, shipping, collection, price) 
+VALUES ('', '$email', '$firstName', '$lastName', '$username', '$condition', '$format', '$genre', '$filename', '$city', '$province', '$shipping', '$collection', '$price')";
+// saving the sql insert into statement as a variable. The values are the data we got
+// from the html form.
+
+if ($mysqli->query($sql) === TRUE) {
+    echo "New record created successfully";
+    // $mysqli->query($sql) returned true. The data is succesfully inserted.
+} else {
+    echo "Error: " . $sql . "<br>" . $conn->error;
+    // Else some sort of error to be described.
+}
+
+// If we reach this point the record is saved and promted to the user.
+
+$mysqli->close(); // Close connection
+
+if (isset($_POST["Register-btn"])) {
+    // (deal with the submitted fields here) 
+    header("Location: BookStore.html");
+    exit;
+}
+?>

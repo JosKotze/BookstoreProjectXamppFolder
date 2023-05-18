@@ -52,7 +52,7 @@
         </div>
       </div>
     </div>
-    <form action="script.js" class="CreateListing-form">
+    <form action="process-createListing.php" method="post" class="CreateListing-form">
         <h1>Create a listing</h1>
         <label for="title">Title:</label>
         <input type="text" id="title" name="title" placeholder="Enter the title of the book">
@@ -206,7 +206,7 @@
         <span class="price_style"> 
           <input type="number" id="price" name="price" placeholder="..."/>
         </span>
-        <input type="submit" value="Post Listing" onclick="createListingArray()">
+        <input type="submit" value="Post Listing">
     </form>
 </body>
 </html>
