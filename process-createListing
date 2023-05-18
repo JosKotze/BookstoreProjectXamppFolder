@@ -1,14 +1,12 @@
 <?php
-$email = $_POST["title"];
-$firstName = $_POST["author"];
-$lastName = $_POST["pageNum"];
-$username = $_POST["publisher"];
+$title = $_POST["title"];
+$author = $_POST["author"];
+$pageNum = $_POST["pageNum"];
+$publisher = $_POST["publisher"];
 $condition = $_POST["condition"];
 $format = $_POST["format"];
 $genre = $_POST["genre"];
-
 $filename = $_FILES["uploadPicture"]["name"];
-
 $city = $_POST["city"];
 $province = $_POST["province"];
 $shipping = $_POST["shipping"];
@@ -31,8 +29,8 @@ if ($mysqli->connect_error) {
     // connection_error returns a description of last connection error
 }
 
-$sql = "INSERT INTO listings (listing_id, email, firstName, lastName, username, condition, format, genre, filename, city, province, shipping, collection, price) 
-VALUES ('', '$email', '$firstName', '$lastName', '$username', '$condition', '$format', '$genre', '$filename', '$city', '$province', '$shipping', '$collection', '$price')";
+$sql = "INSERT INTO listings (listing_id, title, author, pageNum, publisher, bookSate, format, genre, uploadPicture, city, province, shipping, bookState, price) 
+VALUES ('', '$title', '$author','$pageNum','$publisher','$condition','$format', '$genre', '$filename', '$city', '$province', '$shipping', '$collection', '$price')";
 // saving the sql insert into statement as a variable. The values are the data we got
 // from the html form.
 
