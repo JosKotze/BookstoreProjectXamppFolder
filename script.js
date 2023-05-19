@@ -1,4 +1,4 @@
-
+/*
 const listings = [
   {
     title: title,
@@ -16,7 +16,7 @@ const listings = [
     price: price
   },
 ];
-
+*/
 const listingsContainer = document.querySelector(".listings-container .books-grid");
 
 const createListingCard = () => {

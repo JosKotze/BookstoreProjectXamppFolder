@@ -1,4 +1,5 @@
 <?php
+
 $title = $_POST["title"];
 $author = $_POST["author"];
 $pageNum = $_POST["pageNum"];
@@ -6,17 +7,20 @@ $publisher = $_POST["publisher"];
 $condition = $_POST["condition"];
 $format = $_POST["format"];
 $genre = $_POST["genre"];
-
-$file = $this->image["uploadPicture"];
 /*
+$file = $this->image["uploadPicture"];
+'file_get_contents($file)', '$this->image_id',
+*/
+
 $target_dir = "uploads/";
-$file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+$file = $target_dir . basename($_FILES["uploadPicture"]["name"]);
 $uploadOk = 1;
-$imageFileType = strtolower(pathinfo($filen, PATHINFO_EXTENSION));
+$imageFileType = strtolower(pathinfo($file, PATHINFO_EXTENSION));
+$filename = pathinfo($file, PATHINFO_EXTENSION);
 // Check if image file is a actual image or fake image
 
 if (isset($_POST["submit"])) {
-    $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+    $check = getimagesize($_FILES["uploadPicture"]["tmp_name"]);
     if ($check !== false) {
         echo "File is an image - " . $check["mime"] . ".";
         $uploadOk = 1;
@@ -25,7 +29,7 @@ if (isset($_POST["submit"])) {
         $uploadOk = 0;
     }
 }
-*/
+
 
 $city = $_POST["city"];
 $province = $_POST["province"];
@@ -50,7 +54,7 @@ if ($mysqli->connect_error) {
 }
 
 $sql = "INSERT INTO listings (listing_id, title, author, pageNum, publisher, bookState, format, genre, uploadPicture, imageName, city, province, shipping, collect, price) 
-VALUES ('', '$title', '$author','$pageNum','$publisher','$condition','$format', '$genre', 'file_get_contents($file)', '$this->image_id', '$city', '$province', '$shipping', '$collection', '$price')";
+VALUES ('', '$title', '$author','$pageNum','$publisher','$condition','$format', '$genre', '$file', '$filename', '$city', '$province', '$shipping', '$collection', '$price')";
 // saving the sql insert into statement as a variable. The values are the data we got
 // from the html form.
 
@@ -71,4 +75,6 @@ if (isset($_POST["Register-btn"])) {
     header("Location: BookStore.html");
     exit;
 }
+
+
 ?>
