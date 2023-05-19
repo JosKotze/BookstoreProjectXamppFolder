@@ -17,6 +17,24 @@ const listings = [
   },
 ];
 
+function CreateListingObj() {
+
+  var mysql = require('mysql');
+  var con = mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    password: "",
+    database: "bookstore_db"
+  });
+  con.connect(function(err) {
+    if (err) throw err;
+    con.query("SELECT * FROM listings", function (err, result, fields) {
+      if (err) throw err;
+      console.log(result);
+    });
+  });
+}
+
 const listingsContainer = document.querySelector(".listings-container .books-grid");
 
 const createListingCard = () => {
@@ -100,7 +118,6 @@ function createListingArray(listings) {
 
   createListingCard();
   alert("Listing created");
-
 }
 
 
