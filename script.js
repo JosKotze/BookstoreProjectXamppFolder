@@ -19,52 +19,6 @@ const listings = [
 */
 const listingsContainer = document.querySelector(".listings-container .books-grid");
 
-const createListingCard = () => {
-  listings.forEach((listing) => {
-    let bookListing = document.createElement("div");
-    bookListing.classList.add("book-advert");
-
-    let coverpage = document.createElement("img");
-    image.src = listing.image;
-
-    let title = document.createElement("h3");
-    title.innerHTML = listing.title;
-    title.classList.add("book-title");
-
-    let details = document.createElement("div");
-    details.innerHTML = listing.details;
-    details.classList.add("details");
-
-        let t1 = document.createElement("label");
-        details.innerHTML = "Price: ";
-
-        let price = document.createElement("p");
-        price.innerHTML = listing.price;
-        price.classList.add("price");
-
-        let t2 = document.createElement("label");
-        details.innerHTML = "Pages: ";
-
-        let pages = document.createElement("p");
-        pages.innerHTML = listing.pages;
-        pages.classList.add("pages");
-    
-    let viewAddBtn = document.createElement("a");
-    viewAddBtn.href = listing.link; // Moet nog link add na n listing page
-    viewAddBtn.innerHTML = "View Add";
-    viewAddBtn.classList.add("viewAddBtn");
-
-    bookListing.appendChild("coverpage");
-    bookListing.appendChild("title");
-    bookListing.appendChild("details");
-    bookListing.appendChild("viewAddBtn");
-
-    listingsContainer.appendChild(bookListing);
-    window.alert("Everything appended");
-  })
-}
-
-
 function createListingArray(listings) {
   var title = document.getElementById('title').innerHTML;
   var author = document.getElementById('author').innerHTML;
