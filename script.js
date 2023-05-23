@@ -100,7 +100,6 @@ function createListingArray(listings) {
 
   createListingCard();
   alert("Listing created");
-
 }
 
 
