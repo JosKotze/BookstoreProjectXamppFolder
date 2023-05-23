@@ -1,5 +1,7 @@
 <?php
 
+//include 'dbConfig.php';
+
 $title = $_POST["title"];
 $author = $_POST["author"];
 $pageNum = $_POST["pageNum"];
@@ -7,36 +9,16 @@ $publisher = $_POST["publisher"];
 $condition = $_POST["condition"];
 $format = $_POST["format"];
 $genre = $_POST["genre"];
-/*
-$file = $this->image["uploadPicture"];
-'file_get_contents($file)', '$this->image_id',
-*/
-
-$target_dir = "uploads/";
-$file = $target_dir . basename($_FILES["uploadPicture"]["name"]);
-$uploadOk = 1;
-$imageFileType = strtolower(pathinfo($file, PATHINFO_EXTENSION));
-$filename = pathinfo($file, PATHINFO_EXTENSION);
-// Check if image file is a actual image or fake image
-
-if (isset($_POST["submit"])) {
-    $check = getimagesize($_FILES["uploadPicture"]["tmp_name"]);
-    if ($check !== false) {
-        echo "File is an image - " . $check["mime"] . ".";
-        $uploadOk = 1;
-    } else {
-        echo "File is not an image.";
-        $uploadOk = 0;
-    }
-}
-
-
 $city = $_POST["city"];
 $province = $_POST["province"];
 $shipping = $_POST["shipping"];
 $collection = $_POST["collection"];
 $price = $_POST["price"];
 // Creating variables to save form data from HTML
+
+$filename = $_FILES["uploadPicture"]["name"];
+$tempname = $_FILES["uploadPicture"]["tmp_name"];
+$folder = "C:\xampp\htdocs\BookstoreProjectXamppFolder/ListingImages/" . $filename;
 
 $host = "localhost";
 $username = "root";
@@ -53,8 +35,19 @@ if ($mysqli->connect_error) {
     // connection_error returns a description of last connection error
 }
 
-$sql = "INSERT INTO listings (listing_id, title, author, pageNum, publisher, bookState, format, genre, uploadPicture, imageName, city, province, shipping, collect, price) 
-VALUES ('', '$title', '$author','$pageNum','$publisher','$condition','$format', '$genre', '$file', '$filename', '$city', '$province', '$shipping', '$collection', '$price')";
+$sql = "INSERT into listings (listing_id, title, author, pageNum, publisher, bookState, format, genre, filePath, city, province, shipping, collect, price) 
+VALUES ('', '$title', '$author','$pageNum','$publisher','$condition','$format', '$genre', '$filename', '$city', '$province', '$shipping', '$collection', '$price')";
+
+// Execute query
+mysqli_query($mysqli, $sql);
+
+// Now let's move the uploaded image into the folder: image
+if (move_uploaded_file($tempname, $folder)) {
+    echo "<h3>  Image uploaded successfully!</h3>";
+} else {
+    echo "<h3>  Failed to upload image!</h3>";
+}
+
 // saving the sql insert into statement as a variable. The values are the data we got
 // from the html form.
 
@@ -69,12 +62,5 @@ if ($mysqli->query($sql) === TRUE) {
 // If we reach this point the record is saved and promted to the user.
 
 $mysqli->close(); // Close connection
-
-if (isset($_POST["Register-btn"])) {
-    // (deal with the submitted fields here) 
-    header("Location: BookStore.html");
-    exit;
-}
-
 
 ?>

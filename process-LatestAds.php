@@ -32,7 +32,7 @@ if ($mysqli->connect_error) {
 }
 
 $sql = "Select listing_id, title, author, pageNum, publisher, bookSate, format, genre, uploadPicture, city, province, shipping, bookState, price
-From listings"
+From listings";
 // saving the sql insert into statement as a variable. The values are the data we got
 // from the html form.
 
@@ -45,15 +45,15 @@ $stmt->fetch();
 $stmt->close();
 
 echo "<div class='book-advert'>";
-echo "<img src="$filename" alt='book'>";
+echo "<img src='$filename' alt='book'>";
 echo "<h3 class='book-title'> $title </h3>";
 echo "<div class='details'>";
-echo "<label>Price: </label><p id="$price">R300 example</p><br/>";
-echo "<label>Pages: </label><p id="$pageNum">567</p>";
+echo "<label>Price: </label><p id='$price'>R300 example</p><br/>";
+echo "<label>Pages: </label><p id='$pageNum'>567</p>";
 echo "</div>";
-echo "<a href="" class='view-add-btn'>View Add</a>";
-echo "</div>";          
-        
+echo "<a href='' class='view-add-btn'>View Add</a>";
+echo "</div>";
+
 
 if ($mysqli->query($sql) === TRUE) {
     echo "New record created successfully";
