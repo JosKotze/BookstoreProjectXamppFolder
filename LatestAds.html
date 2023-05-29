@@ -7,10 +7,9 @@
     <link rel="shortcut icon" type="image/x-icon" href="BookstoreIcon.png" />
     <link rel="stylesheet" href="style.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="script.js" charset="utf-8"></script>
     <title>Bookstore</title>
 </head>
-<body>
+<body class="short-body">
 <!-- Top Navigation Menu -->
   <div class="topnav">
     <a href="" class="active"><img class="logo-img" src="BookstoreLogo.png" alt="BookstoreLogo"></a>
@@ -51,6 +50,10 @@
     </div>
   </div>
 
+  <div>
+    <input type="button" onclick="GetInfo()" value="Display">
+  </div>
+
   <div class="listings-container">
     <div class="books-grid">
         <div class="book-advert">
@@ -62,11 +65,49 @@
             </div>
             <a href="#" class="view-add-btn">View Add</a>
         </div>
-
-        
+ 
     </div>
   </div>
 
-  <script src="script.js"> </script>
+  <footer>
+    <div class="footer-container">
+      <div class="footer-content">
+        <p>&copy; 2023 Bookstore. All rights reserved.</p>
+        <ul class="footer-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+  <script type="module">
+    
+    import mysql from 'mysql';
+    function GetInfo() {
+    var con = mysql.createConnection({
+      host: "localhost",
+      user: "root",
+      password: "",
+      database: "bookstore_db"
+    });
+
+    con.connect(function(err) {
+      if (err) throw err;
+      // if connection is successful
+      con.query("SELECT * FROM students", function (err, result, fields) {
+        // if any error while executing above query, throw error
+        if (err) throw err;
+        // if there is no error, you have the result
+        // iterate for all the rows in result
+        Object.keys(result).forEach(function(key) {
+          var row = result[key];
+          console.log(row.name)    
+          alert(row.name)   
+        });
+      });
+    });
+    }
+  </script>  
 </body>
 </html>
