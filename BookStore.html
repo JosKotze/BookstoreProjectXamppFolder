@@ -15,17 +15,6 @@
   <div class="topbanner">
     <div class="topnav">
       <a href="" class="active"><img class="logo-img" src="BookstoreLogo.png" alt="BookstoreLogo"></a>
-      <!-- Navigation links (hidden by default) -->
-      <div id="myLinks">
-        <a href="#forums">Forums</a>
-        <a href="#contact">Contact</a>
-        <a href="#about">About</a>
-        <a href="#settings">Settings</a>
-      </div>
-      <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
-      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-        <i class="fa fa-bars"></i> <!-- fa fa-bars class icon for burger menu icon from font library-->
-      </a>
     </div>
   </div>
 
@@ -37,7 +26,7 @@
       <a href="CreateListing.html">Create Listing</a>
     </div>
     <div>
-      <a href="LatestAds.html">Latest ads</a>
+      <a href="BrowseAds.html">Browse Listings</a>
     </div>
     <div>
       <a href="">My Ads</a>
@@ -47,20 +36,17 @@
     </div>
     <div>
       <button onclick="location.href='RegistrationPage.html';">Register</button>
+
       <button onclick="location.href='LoginPage.html';">Login</button>
+
+      <button>Buy</button>
+
+      <button>Sell</button>
     </div>
   </div>
 <div class="Banner-Container">
     <div class="BannerHeading">
       <h1>BUY AND SELL BOOKS</h1>
-    </div>
-    
-    <div class="item-buy-btn">
-      <button>Buy</button>
-    </div>
-
-    <div class="item-sell-btn">
-      <button>Sell</button>
     </div>
 
     <form action="" class="searchbox">
@@ -70,18 +56,83 @@
 
 </div>
 <div>
+    <div class="listings-container">
+      <div class="Header2">
+        <h2>Featured books</h2>
+      <div>
+      <div class="books-grid">
+          <div class="book-advert">
+              <img src="Sample 1.jfif" alt="book">
+              <h3 class="book-title">Lord of the rings</h3>
+              <div class="details">
+                  <label>Price: </label><p id="price">R300 example</p><br/>
+                  <label>Pages: </label><p id="pages">567</p>
+              </div>
+              <a href="#" class="view-add-btn">View Add</a>
+          </div>
+          
+            <div class="book-advert">
+              <img src="Sample 2.png" alt="book">
+              <h3 class="book-title">Lord of the rings</h3>
+              <div class="details">
+                  <label>Price: </label><p id="price">R300 example</p><br/>
+                  <label>Pages: </label><p id="pages">567</p>
+              </div>
+              <a href="#" class="view-add-btn">View Add</a>
+          </div>
+
+            <div class="book-advert">
+              <img src="Sample 3.jfif" alt="book">
+              <h3 class="book-title">Lord of the rings</h3>
+              <div class="details">
+                  <label>Price: </label><p id="price">R300 example</p><br/>
+                  <label>Pages: </label><p id="pages">567</p>
+              </div>
+              <a href="#" class="view-add-btn">View Add</a>
+          </div>
+
+            <div class="book-advert">
+              <img src="Sample 4.jfif" alt="book">
+              <h3 class="book-title">Lord of the rings</h3>
+              <div class="details">
+                  <label>Price: </label><p id="price">R300 example</p><br/>
+                  <label>Pages: </label><p id="pages">567</p>
+              </div>
+              <a href="#" class="view-add-btn">View Add</a>
+          </div>
+
+            <div class="book-advert">
+              <img src="Sample 5.jfif" alt="book">
+              <h3 class="book-title">Lord of the rings</h3>
+              <div class="details">
+                  <label>Price: </label><p id="price">R300 example</p><br/>
+                  <label>Pages: </label><p id="pages">567</p>
+              </div>
+              <a href="#" class="view-add-btn">View Add</a>
+          </div>
+
+          <div class="book-advert">
+            <img src="Sample 6.jfif" alt="book">
+            <h3 class="book-title">Lord of the rings</h3>
+            <div class="details">
+                <label>Price: </label><p id="price">R300 example</p><br/>
+                <label>Pages: </label><p id="pages">567</p>
+            </div>
+            <a href="#" class="view-add-btn">View Add</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div>
   <div>
-    <h2>Featured books</h2>
+    <h2>Reccomended books</h2>
   </div>
   <div class="slider">
     <div class="slides">
       <div id="slide-1">
-        <div class="slide-image">
-          <img src="Sample 1.jfif" alt="sample">
-        </div>
-        <div class="slider-title">
-          <a href="Google.com">Lord of the rings</a>
-        </div>
+        <img src="Sample 1.jfif" alt="sample">
       </div>
       <div id="slide-2">
         <img src="Sample 2.png" alt="sample">
@@ -104,6 +155,19 @@
     </div>
   </div>
 </div>
+
+<footer>
+  <div class="footer-container">
+    <div class="footer-content">
+      <p>&copy; 2023 Bookstore. All rights reserved.</p>
+      <ul class="footer-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
 
 </body>
 </html>

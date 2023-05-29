@@ -16,10 +16,16 @@ $collection = $_POST["collection"];
 $price = $_POST["price"];
 // Creating variables to save form data from HTML
 
+$filePath = $_FILES['uploadPicture']['tmp_name'];
+echo ($filePath);
+$image = file_get_contents($filePath);
+$encodeImgData = base64_encode($image);
+
+/*
 $filename = $_FILES["uploadPicture"]["name"];
 $tempname = $_FILES["uploadPicture"]["tmp_name"];
 $folder = "C:\xampp\htdocs\BookstoreProjectXamppFolder/ListingImages/" . $filename;
-
+*/
 $host = "localhost";
 $username = "root";
 $password = "";
@@ -35,18 +41,20 @@ if ($mysqli->connect_error) {
     // connection_error returns a description of last connection error
 }
 
-$sql = "INSERT into listings (listing_id, title, author, pageNum, publisher, bookState, format, genre, filePath, city, province, shipping, collect, price) 
-VALUES ('', '$title', '$author','$pageNum','$publisher','$condition','$format', '$genre', '$filename', '$city', '$province', '$shipping', '$collection', '$price')";
+$sql = "INSERT into listings (listing_id, title, author, pageNum, publisher, bookState, format, genre, encodeImgData, city, province, shipping, collect, price) 
+VALUES ('', '$title', '$author','$pageNum','$publisher','$condition','$format', '$genre', '$encodeImgData', '$city', '$province', '$shipping', '$collection', '$price')";
 
 // Execute query
 mysqli_query($mysqli, $sql);
 
+/*
 // Now let's move the uploaded image into the folder: image
 if (move_uploaded_file($tempname, $folder)) {
     echo "<h3>  Image uploaded successfully!</h3>";
 } else {
     echo "<h3>  Failed to upload image!</h3>";
 }
+*/
 
 // saving the sql insert into statement as a variable. The values are the data we got
 // from the html form.

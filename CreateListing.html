@@ -35,7 +35,7 @@
           <a class="CurrentPage" href="#CreateListing">Create Listing</a>
         </div>
         <div>
-          <a href="#LatestAds">Latest ads</a>
+          <a href="BrowseAds.html">Browse Listings</a>
         </div>
         <div>
           <a href="#Categories">Categories</a>
@@ -52,7 +52,7 @@
         </div>
       </div>
     </div>
-    <form action="process-createListing.php" method="post" class="CreateListing-form">
+    <form action="process-createListing.php" method="post" enctype="multipart/form-data" class="CreateListing-form">
         <h1>Create a listing</h1>
         <label for="title">Title:</label>
         <input type="text" id="title" name="title" placeholder="Enter the title of the book">
@@ -123,7 +123,7 @@
           <label for="uploadPicture">Click to select image
             <br/>
             <img src="BookCoverIcon.png" alt="BookCoverIcon"></img>
-            <input type="file" id="uploadPicture" name="uploadPicture" placeholder="Upload a picture of the coverpage">
+            <input enctype="multipart/form-data" type="file" id="uploadPicture" name="uploadPicture" placeholder="Upload a picture of the coverpage">
             <br/>
             <span id="imageName"></span>
           </label>
@@ -208,5 +208,17 @@
         </span>
         <input type="submit" value="Post Listing" onclick="">
     </form>
+    <footer>
+      <div class="footer-container">
+        <div class="footer-content">
+          <p>&copy; 2023 Bookstore. All rights reserved.</p>
+          <ul class="footer-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
 </body>
 </html>

@@ -10,7 +10,7 @@
     <script src="script.js" charset="utf-8"></script>
     <title>Bookstore</title>
 </head>
-<body>
+<body class="short-body">
 <!-- Top Navigation Menu -->
   <div class="topnav">
     <a href="" class="active"><img class="logo-img" src="BookstoreLogo.png" alt="BookstoreLogo"></a>
@@ -71,14 +71,18 @@
       <input type="password" id="password2" name="password2" placeholder="Re-enter your password">
       <input id="Register-btn" type="submit" value="Register" onclick="CompareAndValidatePassword()">
     </form>
-    <div>
-      <button type="button" onclick="displayPopup()">test</button>
-      <div class="popup" id="popup">
-        <h2>Thank You!</h2>
-        <p>You have successfully registered.</p>
-        <button type="button" onclick="closePopup()">OK</button>
-      </div>
-    </div>
     
+    <footer>
+      <div class="footer-container">
+        <div class="footer-content">
+          <p>&copy; 2023 Bookstore. All rights reserved.</p>
+          <ul class="footer-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>  
 </body>
 </html>
