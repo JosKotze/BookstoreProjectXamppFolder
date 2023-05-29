@@ -58,7 +58,7 @@ if (move_uploaded_file($tempname, $folder)) {
 
 // saving the sql insert into statement as a variable. The values are the data we got
 // from the html form.
-
+/*
 if ($mysqli->query($sql) === TRUE) {
     echo "New record created successfully";
     // $mysqli->query($sql) returned true. The data is succesfully inserted.
@@ -66,7 +66,7 @@ if ($mysqli->query($sql) === TRUE) {
     echo "Error: " . $sql . "<br>" . $conn->error;
     // Else some sort of error to be described.
 }
-
+*/
 // If we reach this point the record is saved and promted to the user.
 
 $mysqli->close(); // Close connection
