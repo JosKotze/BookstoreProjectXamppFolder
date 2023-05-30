@@ -1,7 +1,5 @@
 <?php
 
-//require_once 'estConnection.php';
-
 $host = "localhost";
 $username = "root";
 $password = "";
@@ -30,41 +28,30 @@ $all_listings = $mySQLconn->query($sql);
 <body class="short-body">
   <!-- Top Navigation Menu -->
   <div class="topnav">
-    <a href="" class="active"><img class="logo-img" src="BookstoreLogo.png" alt="BookstoreLogo"></a>
-    <!-- Navigation links (hidden by default) -->
-    <div id="myLinks">
-      <a href="#forums">Forums</a>
-      <a href="#contact">Contact</a>
-      <a href="#about">About</a>
-      <a href="#settings">Settings</a>
-    </div>
-    <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
-    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-      <i class="fa fa-bars"></i>
-    </a>
-  </div>
-  <div class="second-lv-btns">
-    <div>
-      <a href="BookStore.html">Home</a>
-    </div>
-    <div>
-      <a href="#CreateListing">Create Listing</a>
-    </div>
-    <div>
-      <a href="#LatestAds">Latest ads</a>
-    </div>
-    <div>
-      <a href="#Categories">Categories</a>
-    </div>
-    <div>
-      <a href="#MyAds">My Ads</a>
-    </div>
-    <div>
-      <a href="#Wishlist">Wishlist</a>
-    </div>
-    <div>
-      <button>Register</button>
-      <button id="currentPage">Login</button>
+    <a href="BookStore.html" class="active"><img class="logo-img" src="BookstoreLogo.png" alt="BookstoreLogo"></a>
+    <div class="second-lv-btns">
+      <div>
+        <a href="BookStore.html">Home</a>
+      </div>
+      <div>
+        <a href="#CreateListing">Create Listing</a>
+      </div>
+      <div>
+        <a href="#LatestAds">Latest ads</a>
+      </div>
+      <div>
+        <a href="#Categories">Categories</a>
+      </div>
+      <div>
+        <a href="#MyAds">My Ads</a>
+      </div>
+      <div>
+        <a href="#Wishlist">Wishlist</a>
+      </div>
+      <div>
+        <button>Register</button>
+        <button id="currentPage">Login</button>
+      </div>
     </div>
   </div>
   <div class="listings-container">
