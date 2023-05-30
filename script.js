@@ -17,6 +17,7 @@ const listings = [
   },
 ];
 */
+/*
 const listingsContainer = document.querySelector(".listings-container .books-grid");
 
 function createListingArray(listings) {
@@ -49,14 +50,14 @@ function createListingArray(listings) {
     collection: collection,
     price: price
   };
-
   listings.unshift(listingObject); // add object to the start of array for latest posts
 
   createListingCard();
   alert("Listing created");
 }
+*/
 
-
+/*
 function myFunction() {
   var x = document.getElementById("myLinks");
   if (x.style.display === "block") {
@@ -65,6 +66,7 @@ function myFunction() {
     x.style.display = "block";
   }
 }
+*/
 
 function redirectToHomepage()
 {

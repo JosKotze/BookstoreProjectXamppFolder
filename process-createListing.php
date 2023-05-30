@@ -20,12 +20,8 @@ $filePath = $_FILES['uploadPicture']['tmp_name'];
 //echo ($filePath);
 $image = file_get_contents($filePath);
 $encodeImgData = base64_encode($image);
+// convert image to base64
 
-/*
-$filename = $_FILES["uploadPicture"]["name"];
-$tempname = $_FILES["uploadPicture"]["tmp_name"];
-$folder = "C:\xampp\htdocs\BookstoreProjectXamppFolder/ListingImages/" . $filename;
-*/
 $host = "localhost";
 $username = "root";
 $password = "";
@@ -47,28 +43,6 @@ VALUES ('', '$title', '$author','$pageNum','$publisher','$condition','$format', 
 // Execute query
 mysqli_query($mysqli, $sql);
 
-/*
-// Now let's move the uploaded image into the folder: image
-if (move_uploaded_file($tempname, $folder)) {
-    echo "<h3>  Image uploaded successfully!</h3>";
-} else {
-    echo "<h3>  Failed to upload image!</h3>";
-}
-*/
-
-// saving the sql insert into statement as a variable. The values are the data we got
-// from the html form.
-/*
-if ($mysqli->query($sql) === TRUE) {
-    echo "New record created successfully";
-    // $mysqli->query($sql) returned true. The data is succesfully inserted.
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
-    // Else some sort of error to be described.
-}
-*/
-// If we reach this point the record is saved and promted to the user.
-
 $mysqli->close(); // Close connection
 
 
@@ -83,6 +57,6 @@ echo "<p style='color: #666666; font-size: 18px;'>Please use our website to find
 echo "</div>";
 echo "</body>";
 echo "</html>";
-
+// thank you message
 
 ?>

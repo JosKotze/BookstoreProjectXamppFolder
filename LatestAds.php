@@ -19,41 +19,52 @@ $all_listings = $mySQLconn->query($sql);
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" type="image/x-icon" href="BookstoreIcon.png" />
+  <link rel="shortcut icon" type="image/x-icon" href="assets/BookstoreIcon.png" />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <title>Bookstore</title>
 </head>
 
 <body class="short-body">
+
   <!-- Top Navigation Menu -->
-  <div class="topnav">
-    <a href="BookStore.html" class="active"><img class="logo-img" src="BookstoreLogo.png" alt="BookstoreLogo"></a>
+  <div class="topbanner">
+    <div class="topnav">
+      <a href="" class="active"><img class="logo-img" src="assets/BookstoreLogo.png" alt="BookstoreLogo"></a>
+    </div>
     <div class="second-lv-btns">
       <div>
         <a href="BookStore.html">Home</a>
       </div>
       <div>
-        <a href="#CreateListing">Create Listing</a>
+        <a href="CreateListing.html">Create Listing</a>
       </div>
       <div>
-        <a href="#LatestAds">Latest ads</a>
+        <a href="BuyBooks.php">Browse Listings</a>
       </div>
       <div>
-        <a href="#Categories">Categories</a>
+        <a class="CurrentPage" href="LatestAds.php">LatestAds</a>
       </div>
       <div>
-        <a href="#MyAds">My Ads</a>
+        <a href="MyAds.php">My Ads</a>
       </div>
       <div>
-        <a href="#Wishlist">Wishlist</a>
+        <a href="Wishlist.php">Wishlist</a>
       </div>
       <div>
-        <button>Register</button>
-        <button id="currentPage">Login</button>
+        <button onclick="location.href='RegistrationPage.html';">Register</button>
+
+        <button onclick="location.href='LoginPage.html';">Login</button>
+
+        <button onclick="location.href='BuyBooks.php';">Buy</button>
+
+        <button onclick="location.href='CreateListing.html';">Sell</button>
+
       </div>
     </div>
   </div>
+
+
   <div class="listings-container">
     <div class="books-grid">
       <?php

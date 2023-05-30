@@ -11,45 +11,43 @@
     <title>Bookstore</title>
 </head>
 <body class="short-body">
-<!-- Top Navigation Menu -->
-  <div class="topnav">
-    <a href="" class="active"><img class="logo-img" src="BookstoreLogo.png" alt="BookstoreLogo"></a>
-    <!-- Navigation links (hidden by default) -->
-    <div id="myLinks">
-      <a href="#forums">Forums</a>
-      <a href="#contact">Contact</a>
-      <a href="#about">About</a>
-      <a href="#settings">Settings</a>
+    <!-- Top Navigation Menu -->
+    <div class="topbanner">
+      <div class="topnav">
+          <a href="" class="active"><img class="logo-img" src="assets/BookstoreLogo.png" alt="BookstoreLogo"></a>
+      </div>
     </div>
-    <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
-    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-      <i class="fa fa-bars"></i>
-    </a>
-  </div>
-  <div class="second-lv-btns">
-    <div>
-      <a href="BookStore.html">Home</a>
+
+    <div class="second-lv-btns">
+        <div>
+            <a href="BookStore.html">Home</a>
+        </div>
+        <div>
+            <a href="CreateListing.html">Create Listing</a>
+        </div>
+        <div>
+            <a href="BrowseAds.html">Browse Listings</a>
+        </div>
+        <div>
+            <a href="LatestAds.php">LatestAds</a>
+        </div>
+        <div>
+            <a href="MyAds.php">My Ads</a>
+        </div>
+        <div>
+            <a href="Wishlist.php">Wishlist</a>
+        </div>
+        <div>
+            <button onclick="location.href='RegistrationPage.html';">Register</button>
+
+            <button onclick="location.href='LoginPage.html';">Login</button>
+
+            <button onclick="location.href='BuyBooks.php';">Buy</button>
+
+            <button onclick="location.href='CreateListing.html';">Sell</button>
+
+        </div>
     </div>
-    <div>
-      <a href="#CreateListing">Create Listing</a>
-    </div>
-    <div>
-      <a href="#LatestAds">Latest ads</a>
-    </div>
-    <div>
-      <a href="#Categories">Categories</a>
-    </div>
-    <div>
-      <a href="#MyAds">My Ads</a>
-    </div>
-    <div>
-      <a href="#Wishlist">Wishlist</a>
-    </div>
-    <div>
-      <button>Register</button>
-      <button id="currentPage">Login</button>
-    </div>
-  </div>
     <form action="process-registration-form.php" method="post" class="Registration-form">
       <h1>Registration</h1>
       <label for="email">Eamil:</label>
