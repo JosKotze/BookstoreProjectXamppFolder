@@ -26,7 +26,6 @@ $all_listings = $mySQLconn->query($sql);
 </head>
 
 <body class="short-body">
-
   <!-- Top Navigation Menu -->
   <div class="topbanner">
     <div class="topnav">
