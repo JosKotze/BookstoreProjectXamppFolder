@@ -71,22 +71,8 @@ $all_listings = $mySQLconn->query($sql);
         ?>
         <div class="book-advert">
           <?php
-
-          /*
-          $base64_image = $row["encodeImgData"];
-          $base64_image = str_replace('data:image/jpeg;base64,', '', $base64_image);
-          $code_binary = base64_decode($base64_image);
-          $image = imagecreatefromstring($code_binary);
-          header('Content-Type: image/jpeg');
-          imagejpeg($image);
-          imagedestroy($image);
-          */
           $data = $row["encodeImgData"];
-          //echo base64_decode($data);
           echo '<img src="data:image/gif;base64,' . $data . '" />';
-          //echo '<img src="data:image/jpg;base64,' . $base64encodedString . '" />';
-        
-
           ?>
           <h3 class="book-title">
             <?php echo $row["title"]; ?>
@@ -100,7 +86,29 @@ $all_listings = $mySQLconn->query($sql);
             <p id="pages">
               <?php echo $row["pageNum"]; ?>
             </p>
+
+            <label>Genre: </label>
+            <p id="genre">
+              <?php echo $row["genre"]; ?>
+            </p>
+
+            <label>Author: </label>
+            <p id="author">
+              <?php echo $row["author"]; ?>
+            </p>
+
+            <label>Format: </label>
+            <p id="format">
+              <?php echo $row["format"]; ?>
+            </p>
+
+            <label>Condition: </label>
+            <p id="condition">
+              <?php echo $row["bookState"]; ?>
+            </p>
+
           </div>
+          <button class="" id="myBtn">See more info</button>
           <a href="#" class="view-add-btn">View Add</a>
         </div>
         <?php
@@ -108,6 +116,15 @@ $all_listings = $mySQLconn->query($sql);
       ?>
     </div>
   </div>
+
+  <div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p>Some text in the Modal..</p>
+    </div>
+  </div>
+
   <footer>
     <div class="footer-container">
       <div class="footer-content">
