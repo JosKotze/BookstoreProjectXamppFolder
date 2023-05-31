@@ -13,24 +13,25 @@ if ($conn->connect_error) {
 
 // Retrieve search parameters from the form
 $keyword = $_GET['query'];
-$category = $_GET['category'];
 $format = $_GET['format'];
 $genre = $_GET['genre'];
 
 // Construct the SQL query based on the search parameters
 $sql = "SELECT * FROM listings WHERE 1=1";
 if (!empty($keyword)) {
-    $sql .= " AND (name LIKE '%$keyword%' OR description LIKE '%$keyword%')";
-}
-if (!empty($category)) {
-    $sql .= " AND category = '$category'";
+    $sql .= " AND (title LIKE '%$keyword%')";
 }
 if (!empty($format)) {
-    $sql .= " AND category = '$format'";
+    $sql .= " AND format = '$format'";
 }
 if (!empty($genre)) {
-    $sql .= " AND category = '$genre'";
+    $sql .= " AND genre = '$genre'";
 }
+/*
+if (!empty($keyword)) {
+    $sql .= " AND (title LIKE '%$keyword%' OR description LIKE '%$keyword%')";
+}
+*/
 
 // Execute the query and fetch the results
 $result = $conn->query($sql);
@@ -92,12 +93,6 @@ $result = $conn->query($sql);
     <h1>Search for a book</h1>
     <form method="GET" action="BuyBooks.php">
         <input type="text" name="query" placeholder="Search by keyword">
-        <select id="category" name="category">
-            <option value="">All Categories</option>
-            <option value="Electronics">Electronics</option>
-            <option value="Clothing">Clothing</option>
-            <option value="Books">Books</option>
-        </select>
 
         <select id="format" name="format">
             <option value="">Any format</option>
