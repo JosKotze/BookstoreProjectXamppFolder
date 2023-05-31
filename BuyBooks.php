@@ -17,15 +17,30 @@ $format = $_GET['format'];
 $genre = $_GET['genre'];
 
 // Construct the SQL query based on the search parameters
+/*
+$sql = "SELECT * FROM listings WHERE 1=1";
+if (!empty($keyword)) {
+    $sql .= " AND (title LIKE '%$keyword%')";
+}
+if (!empty($format) || !empty($genre)) {
+    $sql .= " AND (title LIKE '%$format%' OR genre LIKE '%$genre%')";
+}
+*/
 $sql = "SELECT * FROM listings WHERE 1=1";
 if (!empty($keyword)) {
     $sql .= " AND (title LIKE '%$keyword%')";
 }
 if (!empty($format)) {
-    $sql .= " AND format = '$format'";
+    $sql .= " AND (title LIKE '%$keyword%' OR genre LIKE '%$format%')";
 }
 if (!empty($genre)) {
-    $sql .= " AND genre = '$genre'";
+    $sql .= " AND (title LIKE '%$keyword%' OR format LIKE '%$format%' OR genre LIKE '%$genre%')";
+}
+if (!empty($genre) || !empty($format)) {
+    $sql .= " AND (format LIKE '%$format%' AND genre LIKE '%$genre%')";
+}
+if (!empty($genre) || !empty($format) || !empty($keyword)) {
+    $sql .= " AND (title LIKE '%$keyword%' AND format LIKE '%$format%' AND genre LIKE '%$genre%')";
 }
 /*
 if (!empty($keyword)) {
@@ -140,6 +155,38 @@ $result = $conn->query($sql);
     </form>
 
 
+    <div class="listings-container">
+        <div class="books-grid">
+            <?php
+            while ($row = mysqli_fetch_assoc($result)) {
+                ?>
+                <div class="book-advert">
+                    <?php
+                    $data = $row["encodeImgData"];
+                    echo '<img src="data:image/gif;base64,' . $data . '" />';
+                    ?>
+                    <h3 class="book-title">
+                        <?php echo $row["title"]; ?>
+                    </h3>
+                    <div class="details">
+                        <label>Price: </label>
+                        <p id="price">
+                            <?php echo $row["price"]; ?>
+                        </p><br />
+                        <label>Pages: </label>
+                        <p id="pages">
+                            <?php echo $row["pageNum"]; ?>
+                        </p>
+                    </div>
+                    <a href="#" class="view-add-btn">View Add</a>
+                </div>
+                <?php
+            }
+            ?>
+        </div>
+    </div>
+
+
     <footer>
         <div class="footer-container">
             <div class="footer-content">
@@ -153,6 +200,11 @@ $result = $conn->query($sql);
         </div>
     </footer>
 
+    <?php
+
+
+
+    ?>
 </body>
 
 </html>
