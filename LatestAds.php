@@ -10,6 +10,13 @@ $mySQLconn = new mysqli($host, $username, $password, $dbname, 3307);
 $sql = "SELECT * FROM listings";
 $all_listings = $mySQLconn->query($sql);
 
+//$listing_id = $_COOKIE["listingId"];
+
+$listing_id = 74;
+
+$specificListingQuery = "SELECT * FROM listings WHERE listing_id LIKE '%$listing_id%'";
+
+$sqlconnection = $mySQLconn->query($specificListingQuery);
 ?>
 
 <!DOCTYPE html>
@@ -22,6 +29,7 @@ $all_listings = $mySQLconn->query($sql);
   <link rel="shortcut icon" type="image/x-icon" href="assets/BookstoreIcon.png" />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="listingCardGet.js"></script>
   <title>Bookstore</title>
 </head>
 
@@ -85,46 +93,74 @@ $all_listings = $mySQLconn->query($sql);
             <label>Pages: </label>
             <p id="pages">
               <?php echo $row["pageNum"]; ?>
-            </p>
+            </p><br />
 
             <label>Genre: </label>
             <p id="genre">
               <?php echo $row["genre"]; ?>
-            </p>
+            </p><br />
 
             <label>Author: </label>
             <p id="author">
               <?php echo $row["author"]; ?>
-            </p>
+            </p><br />
 
             <label>Format: </label>
             <p id="format">
               <?php echo $row["format"]; ?>
-            </p>
+            </p><br />
 
             <label>Condition: </label>
             <p id="condition">
               <?php echo $row["bookState"]; ?>
-            </p>
+            </p><br />
 
+            <label>listing id: </label>
+            <p id="listing_id">
+              <?php
+              echo $row["listing_id"];
+              ?>
+            </p><br />
           </div>
-          <button class="" id="myBtn">See more info</button>
-          <a href="#" class="view-add-btn">View Add</a>
+          <button onclick="elementAttributeVal()" id="myBtn">Open Modal</button>
         </div>
         <?php
       }
       ?>
     </div>
+
   </div>
 
+  <!-- The Modal -->
   <div id="myModal" class="modal">
-    <!-- Modal content -->
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <p>Some text in the Modal..</p>
-    </div>
-  </div>
+    <?php
+    while ($field = mysqli_fetch_assoc($sqlconnection)) {
+      ?>
+      <!-- Modal content -->
+      <div class="modal-content">
 
+        <div class="modal-header">
+          <span class="close">&times;</span>
+          <div>
+            <h1>book-title</h1>
+          </div>
+        </div>
+        <div class="modal-body">
+          <h2>Seller Contact details</h2>
+          <p class="listingIdClass">
+            <?php $field["listing_id"] ?>
+          </p>
+          <p>Some other text...</p>
+        </div>
+        <div class="modal-footer">
+          <h2>Book details</h2>
+          <img src="assets/Sample 7.png" alt="BookstoreLogo">
+        </div>
+      </div>
+      <?php
+    }
+    ?>
+  </div>
   <footer>
     <div class="footer-container">
       <div class="footer-content">
