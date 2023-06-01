@@ -110,6 +110,18 @@ html, body {
   font-size: 17px;
 }
 
+.CurrentPage button{
+  background-color: rgb(3, 180, 250);
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 6px;
+  margin-bottom: 4px;
+  margin-left: 2px;
+}
+
 .second-lv-btns button{
   background-color: #ddd;
   color: #333;
@@ -141,6 +153,8 @@ html, body {
   background-color: rgb(3, 180, 250);
   color: white;
 }
+
+
 
 
 @media (max-width: 400px) {
