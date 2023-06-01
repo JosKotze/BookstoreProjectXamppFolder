@@ -105,7 +105,7 @@ $result = $conn->query($sql);
         </div>
     </div>
 
-    
+
     <div class="listings-container">
         <div class="books-grid">
             <?php

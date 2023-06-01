@@ -10,6 +10,9 @@ $mySQLconn = new mysqli($host, $username, $password, $dbname, 3307);
 $sql = "SELECT * FROM listings";
 $all_listings = $mySQLconn->query($sql);
 
+$listing_id = $_COOKIE["listingId"];
+
+$specificListingQuery = "SELECT * FROM listings WHERE listing_id LIKE '%$listing_id%'";
 ?>
 
 <!DOCTYPE html>
@@ -85,30 +88,36 @@ $all_listings = $mySQLconn->query($sql);
             <label>Pages: </label>
             <p id="pages">
               <?php echo $row["pageNum"]; ?>
-            </p>
+            </p><br />
 
             <label>Genre: </label>
             <p id="genre">
               <?php echo $row["genre"]; ?>
-            </p>
+            </p><br />
 
             <label>Author: </label>
             <p id="author">
               <?php echo $row["author"]; ?>
-            </p>
+            </p><br />
 
             <label>Format: </label>
             <p id="format">
               <?php echo $row["format"]; ?>
-            </p>
+            </p><br />
 
             <label>Condition: </label>
             <p id="condition">
               <?php echo $row["bookState"]; ?>
-            </p>
+            </p><br />
 
+            <label>listing id: </label>
+            <p id="listing_id">
+              <?php
+              echo $row["listing_id"];
+              ?>
+            </p><br />
           </div>
-          <button class="" id="myBtn">See more info</button>
+          <button onclick="displayPopup()" id="myBtn">Open Modal</button>
           <a href="#" class="view-add-btn">View Add</a>
         </div>
         <?php
@@ -117,13 +126,92 @@ $all_listings = $mySQLconn->query($sql);
     </div>
   </div>
 
+  <!-- The Modal -->
   <div id="myModal" class="modal">
+    <?php
+    $sqlconnection = $mySQLconn->query($specificListingQuery);
+    $field = mysqli_fetch_assoc($sqlconnection)
+      ?>
     <!-- Modal content -->
     <div class="modal-content">
-      <span class="close">&times;</span>
-      <p>Some text in the Modal..</p>
+
+      <div class="modal-header">
+        <span class="close">&times;</span>
+        <div>
+          <h1>book-title</h1>
+        </div>
+      </div>
+      <div class="modal-body">
+        <h2>Seller Contact details</h2>
+        <p class="listingIdClass">
+          <?php $field["listing_id"] ?>
+        </p>
+        <p>Some other text...</p>
+      </div>
+      <div class="modal-footer">
+        <h2>Book details</h2>
+        <img src="assets/Sample 7.png" alt="BookstoreLogo">
+      </div>
     </div>
+    <?php
+
+    ?>
   </div>
+
+  <script>
+
+    //var listingId = "<?php echo $row["listing_id"]; ?>";
+
+    var listing_ID = $('listingIdClass').html();
+
+    // Creating a cookie after the document is ready
+    $(document).ready(function () {
+      createCookie("listingId", listing_ID, "10");
+    });
+
+    // Function to create the cookie
+    function createCookie(name, value, days) {
+      var expires;
+
+      if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toGMTString();
+      }
+      else {
+        expires = "";
+      }
+
+      document.cookie = escape(name) + "=" +
+        escape(value) + expires + "; path=/";
+    }
+
+    // Get the modal
+    var modal = document.getElementById("myModal");
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal 
+    function displayPopup() {
+      modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+      modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
 
   <footer>
     <div class="footer-container">
