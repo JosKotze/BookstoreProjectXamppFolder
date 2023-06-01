@@ -70,7 +70,7 @@ $result = $conn->query($sql);
     <!-- Top Navigation Menu -->
     <div class="topbanner">
         <div class="topnav">
-            <a href="" class="active"><img class="logo-img" src="assets/BookstoreLogo.png" alt="BookstoreLogo"></a>
+            <a href="BookStore.html" class="active"><img class="logo-img" src="assets/BookstoreLogo.png" alt="BookstoreLogo"></a>
         </div>
     </div>
 

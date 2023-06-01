@@ -16,21 +16,7 @@ html, body {
   width: 15%;
   min-width: 100px;
 }
-/*
 
-.grid-container{
-    display: grid;
-    grid-template-columns: [first] 40px [line2] 50px [line3] auto [col4-start] 50px [five] 40px [end];
-    grid-template-rows: [row1-start] 25% [row1-end] 100px [third-line] auto [last-line];
-}
-
-.top-nav-bar{
-    grid-column-start: 1;
-    grid-column-end: span col4-start;
-    grid-row-start: 2;
-    grid-row-end: span 2;
-}
-*/
 
 .topbanner .topnav{
   display: block;
@@ -43,12 +29,6 @@ html, body {
   position: relative;
 }
 
-/* Hide the links inside the navigation menu (except for logo/home)
-.topnav #myLinks {
-  display: none;
-  text-align: justify;
-}
-*/
 
 .topnav #myLinks {
   display: none;
@@ -64,35 +44,10 @@ html, body {
   display: block;
 }
 
-/*
-.topnav a {
-  float: left;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-}
-*/
-
-/* Style the hamburger menu */
-.topnav a.icon {
-  background: black;
-  display: block;
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-
-/* Add a grey background color on mouse-over */
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
 
 /* Style the active link (or home/logo) */
 .active {
-  background-color: lightgrey;
+  background-color: lightgray;
   color: white;
 }
 
@@ -131,7 +86,7 @@ html, body {
   cursor: pointer;
   margin-top: 6px;
   margin-bottom: 4px;
-  margin-left: 2px;
+  margin-left: 4px;
 }
 
 .second-lv-btns button:hover{
@@ -153,9 +108,6 @@ html, body {
   background-color: rgb(3, 180, 250);
   color: white;
 }
-
-
-
 
 @media (max-width: 400px) {
   .second-lv-btns a {
@@ -197,61 +149,10 @@ html, body {
   font-size: 3rem;
 }
 
-.item-buy-btn {
-  grid-column: 1;
-  grid-row: 2;
-  margin-left: auto;
-  margin-right: auto;
-}
+/* 
+REVIEWED STYLE TILL HERE
+*/
 
-.item-buy-btn button{
-  background-color: #ddd;
-  color: #333;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  width: 200px;
-  font-size: 26px;
-  font-weight: bold;
-  margin-left: 400px;
-}
-
-.item-buy-btn button:hover{
-  color: white;
-  background-color: rgb(3, 180, 250);
-  font-size: 20px;
-  transform: scale(0.9);
-  transition: 400ms;
-}
-
-.item-sell-btn{
-  grid-column: 2;
-  grid-row: 2;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.item-sell-btn button{
-  background-color: #ddd;
-  color: #333;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  width: 200px;
-  font-size: 26px;
-  font-weight: bold;
-  margin-right: 400px;
-}
-
-.item-sell-btn button:hover{
-  color: white;
-  background-color: rgb(3, 180, 250);
-  font-size: 20px;
-  transform: scale(0.9);
-  transition: 400ms;
-}
 
 .searchbox {
   grid-column: span 2;
@@ -895,4 +796,88 @@ h1 {
 @keyframes fadeIn {
   from {opacity: 0} 
   to {opacity: 1}
+}
+
+
+/*Wish list page*/
+
+.wishlist-container {
+  margin-top: 80px;
+  margin-bottom: 80px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.wishlist-container .wishlist-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.wishlist-container .wishlist-book-advert {
+  position: relative;
+  margin: 10px;
+  gap: 24px;
+  padding: 24px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 24px -8px rgba(0, 0, 0, 0.3);
+  transition: transform ease 0.5s, box-shadow ease 0.5s;
+  display: flex;
+  flex-direction: column;
+}
+
+.wishlist-container .wishlist-book-advert:hover {
+  transform: translateY(-5px);
+  box-shadow: 2px 10px 10px 2px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(315deg, rgba(2,0,36,0.20292207792207795) 0%, rgb(3, 180, 250) 100%);
+}
+
+.wishlist-container .wishlist-book-advert img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: -20px;
+  height: auto;
+  width: auto;
+  max-height: 600px;
+  max-width: 180px;
+}
+
+.wishlist-container .details label, .details p {
+  display: inline;
+}
+
+
+@media only screen and (max-width: 450px) {
+  .wishlist-container .wishlist-book-advert img {
+    height: 150px;
+    width: auto;
+  }
+}
+
+@media (max-width: 940px){
+  .wishlist-container .wishlist-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px){
+  .wishlist-container .wishlist-grid {
+    grid-template-columns: 1fr;
+    max-width: 350px;
+    margin: 0 auto;
+  }
+}
+
+.wishlist-book-advert .book-title {
+  font-size: 20px;
+  color: #333;
+  padding: 8px 0;
+}
+
+.wishlist-book-advert .details {
+  flex: 1;
+  font-size: 14px;
+  margin-top: -30px;
+  color: #333;
 }

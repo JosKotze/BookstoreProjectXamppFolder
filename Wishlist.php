@@ -16,7 +16,7 @@
     <!-- Top Navigation Menu -->
     <div class="topbanner">
         <div class="topnav">
-            <a href="" class="active"><img class="logo-img" src="assets/BookstoreLogo.png" alt="BookstoreLogo"></a>
+            <a href="BookStore.html" class="active"><img class="logo-img" src="assets/BookstoreLogo.png" alt="BookstoreLogo"></a>
         </div>
     </div>
 
@@ -50,6 +50,32 @@
 
         </div>
     </div>
+
+    <div class="wishlist-container">
+        <div class="Header2">
+            <h2>Wishlist</h2>
+        <div>
+        <div class="wishlist-grid">
+          <div class="wishlist-book-advert">
+              <img src="assets/Sample 1.jfif" alt="book">
+              <h3 class="book-title">Lord of the rings</h3>
+              <div class="details">
+                  <label>Price: </label><p id="price">R300 example</p><br/>
+                  <label>Pages: </label><p id="pages">567</p>
+              </div>
+              <a href="#" class="view-add-btn">View Add</a>
+          </div>
+        </div>
+    </div>
+
+    <div class=listings-container>
+        <div class=books-grid>
+            <div class="book-advert">
+
+            </div>
+        </div>
+    </div>
+ 
 
     <footer>
         <div class="footer-container">
