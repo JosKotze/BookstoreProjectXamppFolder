@@ -37,7 +37,8 @@ $sqlconnection = $mySQLconn->query($specificListingQuery);
   <!-- Top Navigation Menu -->
   <div class="topbanner">
     <div class="topnav">
-      <a href="BookStore.html" class="active"><img class="logo-img" src="assets/BookstoreLogo.png" alt="BookstoreLogo"></a>
+      <a href="BookStore.html" class="active"><img class="logo-img" src="assets/BookstoreLogo.png"
+          alt="BookstoreLogo"></a>
     </div>
     <div class="second-lv-btns">
       <div>

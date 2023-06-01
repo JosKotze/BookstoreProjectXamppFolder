@@ -65,6 +65,7 @@ $result = $conn->query($sql);
     <script src="script.js" charset="utf-8"></script>
     <title>Bookstore</title>
 </head>
+
 <body>
     <!-- Top Navigation Menu -->
     <div class="topbanner">
