@@ -65,15 +65,25 @@
         <h2>Featured books</h2>
       <div>
       <div class="books-grid">
+
           <div class="book-advert">
               <img src="assets/Sample 1.jfif" alt="book">
               <h3 class="book-title">Lord of the rings</h3>
               <div class="details">
                   <label>Price: </label><p id="price">R300 example</p><br/>
                   <label>Pages: </label><p id="pages">567</p>
+              </div>    
+              <button onclick="toggleMenu()">See seller details</button>
+              <div class="sub-menu-wrap" id="subMenu">
+                <div class="sub-menu">
+                  <div class="user-info">
+                    <h3>Jannnie pieter</h3>
+                  </div>
+                </div>
               </div>
-              <a href="#" class="view-add-btn">View Add</a>
-          </div>
+            </div>
+
+
           
             <div class="book-advert">
               <img src="assets/Sample 2.png" alt="book">
@@ -172,6 +182,14 @@
     </div>
   </div>
 </footer>
+
+<script>
+  let subMenu = document.getElementById("subMenu");
+
+  function toggleMenu() {
+    subMenu.classList.toggle(".open-menu");
+  }
+</script>
 
 </body>
 </html>
