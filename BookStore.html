@@ -40,7 +40,7 @@
     <div>
       <button onclick="location.href='RegistrationPage.html';">Register</button>
 
-      <button onclick="location.href='LoginPage.html';">Login</button>
+      <button onclick="location.href='LoginPage.php';">Login</button>
 
       <button onclick="location.href='BuyBooks.php';">Buy</button>
       
@@ -72,18 +72,21 @@
               <div class="details">
                   <label>Price: </label><p id="price">R300 example</p><br/>
                   <label>Pages: </label><p id="pages">567</p>
-              </div>    
-              <button onclick="toggleMenu()">See seller details</button>
-              <div class="sub-menu-wrap" id="subMenu">
+              </div>
+              
+              <input class="moreInfoBtn" type="button" name="showdiv" onclick="showDiv('toggle')">Seller details</input>
+              <div id="toggle" style="display:none" class="sub-menu-wrap">
                 <div class="sub-menu">
                   <div class="user-info">
                     <h3>Jannnie pieter</h3>
                   </div>
+                    <hr>
+
+                    <p>asdasdgasdgxzcvx</p>       
                 </div>
+                <input class="moreInfoBtn" type="button" name="hidediv" onclick="hideDiv('toggle')">Hide</input>
               </div>
             </div>
-
-
           
             <div class="book-advert">
               <img src="assets/Sample 2.png" alt="book">
@@ -184,10 +187,12 @@
 </footer>
 
 <script>
-  let subMenu = document.getElementById("subMenu");
+  function showDiv(toggle){
+    document.getElementById(toggle).style.display = 'block';
+  }
 
-  function toggleMenu() {
-    subMenu.classList.toggle(".open-menu");
+  function hideDiv(toggle){
+    document.getElementById(toggle).style.display = 'none';
   }
 </script>
 

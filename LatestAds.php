@@ -72,8 +72,9 @@ $sqlconnection = $mySQLconn->query($specificListingQuery);
     </div>
   </div>
 
-
   <div class="listings-container">
+    <input class="moreInfoBtn" type="button" name="showdiv" onclick="showDiv('toggle')">Seller details</input>
+    <input class="moreInfoBtn" type="button" name="hidediv" onclick="hideDiv('toggle')">Hide</input>
     <div class="books-grid">
       <?php
       while ($row = mysqli_fetch_assoc($all_listings)) {
@@ -122,8 +123,19 @@ $sqlconnection = $mySQLconn->query($specificListingQuery);
               echo $row["listing_id"];
               ?>
             </p><br />
+
+            <div id="toggle" style="display:none" class="sub-menu-wrap">
+              <div class="sub-menu">
+                <div class="user-info">
+                  <h3>Jannnie pieter</h3>
+                </div>
+                <hr>
+                <p>asdasdgasdgxzcvx</p>
+              </div>
+
+            </div>
           </div>
-          <button onclick="elementAttributeVal()" id="myBtn">Open Modal</button>
+
         </div>
         <?php
       }
@@ -174,6 +186,17 @@ $sqlconnection = $mySQLconn->query($specificListingQuery);
       </div>
     </div>
   </footer>
+
+  <script>
+    function showDiv(toggle) {
+      document.getElementById(toggle).style.display = 'block';
+    }
+
+    function hideDiv(toggle) {
+      document.getElementById(toggle).style.display = 'none';
+    }
+  </script>
+
 </body>
 
 </html>

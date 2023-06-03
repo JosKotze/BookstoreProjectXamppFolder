@@ -397,6 +397,24 @@ label {
   font-weight: bold;
 }
 
+.createList-container {
+  margin-top: 80px;
+  margin-bottom: 80px;
+  max-width: 950px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.createList-container .createList-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.createList-item {
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .CreateListing-form input, .CreateListing-form select, .login-form input, .Registration-form input{
   border-radius: 5px;
   margin-bottom: 25px;
@@ -859,31 +877,39 @@ Reviewed till here
 */
 /*sub menu*/
 
+
 .sub-menu-wrap {
-  position: absolute;
-  top: 100%;
-  right: 10%;
-  width: 320px;
-  max-height: 0px;
   overflow: hidden;
-  transform: max-height 0.5s;
-}
-
-.sub-menu-wrap.open-menu{
-  max-height: 400px
-}
-
-.sub-menu {
-  background: #fff;
-  padding: 20px;
-  margin: 10px;
+  display: block;
 }
 
 .user-info {
-  display: flex;
   align-items: center;
 }
 
 .user-info h3{
   font-weight:500;
+}
+
+.sub-menu hr{
+  border: 0;
+  height: 1px;
+  width: 100%;
+  background: #ccc;
+  margin: 15px 0 10px;
+}
+
+.sub-menu-wrap .moreInfoBtn {
+  border: 1px solid lightgrey;
+  background-color: lightgray;
+  color: black;
+  padding: 8px 16px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.sub-menu-wrap .moreInfoBtn :hover {
+  background-color: #3b3b3b;
+  color: white;
+  border: none;
 }
