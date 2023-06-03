@@ -913,3 +913,25 @@ Reviewed till here
   color: white;
   border: none;
 }
+
+.show-seller-details button{
+  background-color: #ddd;
+  color: #333;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 6px;
+  margin-bottom: 4px;
+  margin-left: 4px;";
+}
+
+.show-seller-details button:hover{
+      color: white;
+      background-color: rgb(3, 180, 250);
+    }
+    
+.show-seller-details button:active{
+      color: white;
+      background-color: rgb(3, 180, 250);
+    }

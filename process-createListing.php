@@ -81,7 +81,6 @@ echo "<body style='background-color: #f5f5f5; font-family: Arial, sans-serif;'>"
 echo "<div style='text-align: center; margin-top: 100px;'>";
 echo "<h1 style='color: #333333; font-size: 32px;'>You have successfully posted a listing!</h1>";
 echo "<p style='color: #666666; font-size: 18px;'>Please use our website to find and sell more books.</p>";
-//echo "<button onclick='location.href='BookStore.html';'>Return to home</button>";
 echo '<button onclick="window.location.href = \'BookStore.html\';">Return to Homepage</button>';
 echo "</div>";
 echo "</body>";

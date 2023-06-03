@@ -8,15 +8,13 @@ $dbname = "bookstore_db";
 $mySQLconn = new mysqli($host, $username, $password, $dbname, 3307);
 
 $sql = "SELECT * FROM listings";
+
 $all_listings = $mySQLconn->query($sql);
-
 //$listing_id = $_COOKIE["listingId"];
+//$specificListingQuery = "SELECT * FROM contactInfo WHERE listing_id LIKE '%$listing_id%'";
+//$sqlconnection = $mySQLconn->query($specificListingQuery);
 
-$listing_id = 74;
 
-$specificListingQuery = "SELECT * FROM listings WHERE listing_id LIKE '%$listing_id%'";
-
-$sqlconnection = $mySQLconn->query($specificListingQuery);
 ?>
 
 <!DOCTYPE html>
@@ -73,11 +71,19 @@ $sqlconnection = $mySQLconn->query($specificListingQuery);
   </div>
 
   <div class="listings-container">
-    <input class="moreInfoBtn" type="button" name="showdiv" onclick="showDiv('toggle')">Seller details</input>
-    <input class="moreInfoBtn" type="button" name="hidediv" onclick="hideDiv('toggle')">Hide</input>
+
     <div class="books-grid">
       <?php
       while ($row = mysqli_fetch_assoc($all_listings)) {
+
+        $listingTablecontactID = $row["contact_id"];
+        //echo $listingTablecontactID;
+        //if ($listingTBcontactID != null) {
+        $specificListingQuery = "SELECT * FROM contactinfo WHERE contactInfo_ID = '$listingTablecontactID'";
+        $contact_info = $mySQLconn->query($specificListingQuery);
+        $contact_row = mysqli_fetch_assoc($contact_info);
+        //echo $contact_row["contactInfo_ID"];
+        //}
         ?>
         <div class="book-advert">
           <?php
@@ -88,7 +94,7 @@ $sqlconnection = $mySQLconn->query($specificListingQuery);
             <?php echo $row["title"]; ?>
           </h3>
           <div class="details">
-            <label>Price: </label>
+            <label>Price: R</label>
             <p id="price">
               <?php echo $row["price"]; ?>
             </p><br />
@@ -117,20 +123,42 @@ $sqlconnection = $mySQLconn->query($specificListingQuery);
               <?php echo $row["bookState"]; ?>
             </p><br />
 
-            <label>listing id: </label>
-            <p id="listing_id">
-              <?php
-              echo $row["listing_id"];
-              ?>
-            </p><br />
+            <button class="show-seller-details" onclick="showDiv('toggle<?php echo $row['listing_id']; ?>')">Show seller
+              details</button>
+            <button class="show-seller-details" onclick="hideDiv('toggle<?php echo $row['listing_id']; ?>')">Hide seller
+              details</button>
 
-            <div id="toggle" style="display:none" class="sub-menu-wrap">
+            <div id="toggle<?php echo $row["listing_id"]; ?>" style="display:none" class="sub-menu-wrap">
               <div class="sub-menu">
                 <div class="user-info">
-                  <h3>Jannnie pieter</h3>
+                  <h3>
+                    <?php
+                    echo $contact_row["fName"];
+                    ?>
+                    <?php
+                    echo $contact_row["lName"];
+                    ?>
+                  </h3>
                 </div>
                 <hr>
-                <p>asdasdgasdgxzcvx</p>
+                <label>cell number: </label>
+                <p id="cellNum">
+                  <?php
+                  echo $contact_row["cellNum"];
+                  ?>
+                </p><br />
+                <label>email: </label>
+                <p id="email">
+                  <?php
+                  echo $contact_row["email"];
+                  ?>
+                </p><br />
+                <label>Contact on: </label>
+                <p id="contactMeth">
+                  <?php
+                  echo $contact_row["contactMeth"];
+                  ?>
+                </p><br />
               </div>
 
             </div>
@@ -143,36 +171,6 @@ $sqlconnection = $mySQLconn->query($specificListingQuery);
     </div>
 
   </div>
-
-  <!-- The Modal -->
-  <div id="myModal" class="modal">
-    <?php
-    while ($field = mysqli_fetch_assoc($sqlconnection)) {
-      ?>
-      <!-- Modal content -->
-      <div class="modal-content">
-
-        <div class="modal-header">
-          <span class="close">&times;</span>
-          <div>
-            <h1>book-title</h1>
-          </div>
-        </div>
-        <div class="modal-body">
-          <h2>Seller Contact details</h2>
-          <p class="listingIdClass">
-            <?php $field["listing_id"] ?>
-          </p>
-          <p>Some other text...</p>
-        </div>
-        <div class="modal-footer">
-          <h2>Book details</h2>
-          <img src="assets/Sample 7.png" alt="BookstoreLogo">
-        </div>
-      </div>
-      <?php
-    }
-    ?>
   </div>
   <footer>
     <div class="footer-container">
@@ -188,12 +186,12 @@ $sqlconnection = $mySQLconn->query($specificListingQuery);
   </footer>
 
   <script>
-    function showDiv(toggle) {
-      document.getElementById(toggle).style.display = 'block';
+    function showDiv(toggleID) {
+      document.getElementById(toggleID).style.display = 'block';
     }
 
-    function hideDiv(toggle) {
-      document.getElementById(toggle).style.display = 'none';
+    function hideDiv(toggleID) {
+      document.getElementById(toggleID).style.display = 'none';
     }
   </script>
 
