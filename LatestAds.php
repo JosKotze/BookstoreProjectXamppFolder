@@ -142,19 +142,19 @@ $all_listings = $mySQLconn->query($sql);
                   <hr>
                   <h3>Details:</h3>
                 </div>
-                <label>cell number: </label>
+                <label>Cell number: </label>
                 <p id="cellNum">
                   <?php
                   echo $contact_row["cellNum"];
                   ?>
                 </p><br />
-                <label>email: </label>
+                <label>Email: </label>
                 <p id="email">
                   <?php
                   echo $contact_row["email"];
                   ?>
                 </p><br />
-                <label>Contact on: </label>
+                <label>Contact Preference: </label>
                 <p id="contactMeth">
                   <?php
                   echo $contact_row["contactMeth"];
