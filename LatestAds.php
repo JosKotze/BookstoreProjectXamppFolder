@@ -122,25 +122,26 @@ $all_listings = $mySQLconn->query($sql);
             <p id="condition">
               <?php echo $row["bookState"]; ?>
             </p><br />
-
-            <button class="show-seller-details" onclick="showDiv('toggle<?php echo $row['listing_id']; ?>')">Show seller
-              details</button>
-            <button class="show-seller-details" onclick="hideDiv('toggle<?php echo $row['listing_id']; ?>')">Hide seller
-              details</button>
-
+            <div class="show-seller-details">
+              <button onclick="showDiv('toggle<?php echo $row['listing_id']; ?>')">Show contact
+                details</button>
+              <button onclick="hideDiv('toggle<?php echo $row['listing_id']; ?>')">Hide
+                details</button>
+            </div>
             <div id="toggle<?php echo $row["listing_id"]; ?>" style="display:none" class="sub-menu-wrap">
               <div class="sub-menu">
                 <div class="user-info">
-                  <h3>
+                  <h2>
                     <?php
                     echo $contact_row["fName"];
                     ?>
                     <?php
                     echo $contact_row["lName"];
                     ?>
-                  </h3>
+                  </h2>
+                  <hr>
+                  <h3>Details:</h3>
                 </div>
-                <hr>
                 <label>cell number: </label>
                 <p id="cellNum">
                   <?php
@@ -160,10 +161,8 @@ $all_listings = $mySQLconn->query($sql);
                   ?>
                 </p><br />
               </div>
-
             </div>
           </div>
-
         </div>
         <?php
       }

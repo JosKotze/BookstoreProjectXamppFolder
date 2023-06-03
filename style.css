@@ -887,31 +887,22 @@ Reviewed till here
   align-items: center;
 }
 
+.user-info h2{
+  font-weight:700;
+  font-size: 20px;
+}
+
 .user-info h3{
-  font-weight:500;
+  font-weight:600;
+  margin-top: -5px;
 }
 
 .sub-menu hr{
   border: 0;
-  height: 1px;
+  height: 1.5px;
   width: 100%;
   background: #ccc;
-  margin: 15px 0 10px;
-}
-
-.sub-menu-wrap .moreInfoBtn {
-  border: 1px solid lightgrey;
-  background-color: lightgray;
-  color: black;
-  padding: 8px 16px;
-  border-radius: 10px;
-  text-align: center;
-}
-
-.sub-menu-wrap .moreInfoBtn :hover {
-  background-color: #3b3b3b;
-  color: white;
-  border: none;
+  margin: -10px 0 10px;
 }
 
 .show-seller-details button{
@@ -923,15 +914,15 @@ Reviewed till here
   cursor: pointer;
   margin-top: 6px;
   margin-bottom: 4px;
-  margin-left: 4px;";
+  margin-left: 4px;
 }
 
 .show-seller-details button:hover{
-      color: white;
-      background-color: rgb(3, 180, 250);
-    }
+  color: white;
+  background-color: #333;
+}
     
 .show-seller-details button:active{
-      color: white;
-      background-color: rgb(3, 180, 250);
-    }
+  color: white;
+  background-color: rgb(3, 180, 250);
+}
