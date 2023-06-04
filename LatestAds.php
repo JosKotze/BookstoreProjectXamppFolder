@@ -122,6 +122,16 @@ $all_listings = $mySQLconn->query($sql);
             <p id="condition">
               <?php echo $row["bookState"]; ?>
             </p><br />
+
+            <label>Shipping: </label>
+            <p id="shipping">
+              <?php echo $row["shipping"]; ?>
+            </p><br />
+
+            <label>Collection: </label>
+            <p id="collection">
+              <?php echo $row["collect"]; ?>
+            </p><br />
             <div class="show-seller-details">
               <button onclick="showDiv('toggle<?php echo $row['listing_id']; ?>')">Show contact
                 details</button>

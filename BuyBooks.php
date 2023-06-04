@@ -12,44 +12,35 @@ if ($conn->connect_error) {
 }
 
 // Retrieve search parameters from the form
-$keyword = $_GET['query'];
-$format = $_GET['format'];
-$genre = $_GET['genre'];
+$keyword = isset($_GET['query']) ? $_GET['query'] : '';
+$format = isset($_GET['format']) ? $_GET['format'] : '';
+$genre = isset($_GET['genre']) ? $_GET['genre'] : '';
+// isset helps avoid the warming "Undefined array key" if you don't search anything
 
-// Construct the SQL query based on the search parameters
-/*
-$sql = "SELECT * FROM listings WHERE 1=1";
+$sqlSearch = "SELECT * FROM listings WHERE 1=1";
 if (!empty($keyword)) {
-    $sql .= " AND (title LIKE '%$keyword%')";
-}
-if (!empty($format) || !empty($genre)) {
-    $sql .= " AND (title LIKE '%$format%' OR genre LIKE '%$genre%')";
-}
-*/
-$sql = "SELECT * FROM listings WHERE 1=1";
-if (!empty($keyword)) {
-    $sql .= " AND (title LIKE '%$keyword%')";
+    $sqlSearch .= " AND (title LIKE '%$keyword%')";
 }
 if (!empty($format)) {
-    $sql .= " AND (title LIKE '%$keyword%' OR genre LIKE '%$format%')";
+    $sqlSearch .= " AND (title LIKE '%$keyword%' OR genre LIKE '%$format%')";
 }
 if (!empty($genre)) {
-    $sql .= " AND (title LIKE '%$keyword%' OR format LIKE '%$format%' OR genre LIKE '%$genre%')";
+    $sqlSearch .= " AND (title LIKE '%$keyword%' OR format LIKE '%$format%' OR genre LIKE '%$genre%')";
 }
 if (!empty($genre) || !empty($format)) {
-    $sql .= " AND (format LIKE '%$format%' AND genre LIKE '%$genre%')";
+    $sqlSearch .= " AND (format LIKE '%$format%' AND genre LIKE '%$genre%')";
 }
 if (!empty($genre) || !empty($format) || !empty($keyword)) {
-    $sql .= " AND (title LIKE '%$keyword%' AND format LIKE '%$format%' AND genre LIKE '%$genre%')";
+    $sqlSearch .= " AND (title LIKE '%$keyword%' AND format LIKE '%$format%' AND genre LIKE '%$genre%')";
 }
-/*
-if (!empty($keyword)) {
-    $sql .= " AND (title LIKE '%$keyword%' OR description LIKE '%$keyword%')";
-}
-*/
+$result = $conn->query($sqlSearch);
+
+//$sql = "SELECT * FROM listings";
+
+//$all_listings = $conn->query($sql);
 
 // Execute the query and fetch the results
-$result = $conn->query($sql);
+
 
 ?>
 <!DOCTYPE html>
@@ -70,7 +61,8 @@ $result = $conn->query($sql);
     <!-- Top Navigation Menu -->
     <div class="topbanner">
         <div class="topnav">
-            <a href="" class="active"><img class="logo-img" src="assets/BookstoreLogo.png" alt="BookstoreLogo"></a>
+            <a href="BookStore.html" class="active"><img class="logo-img" src="assets/BookstoreLogo.png"
+                    alt="BookstoreLogo"></a>
         </div>
     </div>
 
@@ -155,10 +147,21 @@ $result = $conn->query($sql);
     </form>
 
 
+
     <div class="listings-container">
+
         <div class="books-grid">
             <?php
             while ($row = mysqli_fetch_assoc($result)) {
+
+                $listingTablecontactID = $row["contact_id"];
+                //echo $listingTablecontactID;
+                //if ($listingTBcontactID != null) {
+                $specificListingQuery = "SELECT * FROM contactinfo WHERE contactInfo_ID = '$listingTablecontactID'";
+                $contact_info = $conn->query($specificListingQuery);
+                $contact_row = mysqli_fetch_assoc($contact_info);
+                //echo $contact_row["contactInfo_ID"];
+                //}
                 ?>
                 <div class="book-advert">
                     <?php
@@ -169,42 +172,112 @@ $result = $conn->query($sql);
                         <?php echo $row["title"]; ?>
                     </h3>
                     <div class="details">
-                        <label>Price: </label>
+                        <label>Price: R</label>
                         <p id="price">
                             <?php echo $row["price"]; ?>
                         </p><br />
                         <label>Pages: </label>
                         <p id="pages">
                             <?php echo $row["pageNum"]; ?>
-                        </p>
+                        </p><br />
+
+                        <label>Genre: </label>
+                        <p id="genre">
+                            <?php echo $row["genre"]; ?>
+                        </p><br />
+
+                        <label>Author: </label>
+                        <p id="author">
+                            <?php echo $row["author"]; ?>
+                        </p><br />
+
+                        <label>Format: </label>
+                        <p id="format">
+                            <?php echo $row["format"]; ?>
+                        </p><br />
+
+                        <label>Condition: </label>
+                        <p id="condition">
+                            <?php echo $row["bookState"]; ?>
+                        </p><br />
+                        <label>Shipping: </label>
+                        <p id="shipping">
+                            <?php echo $row["shipping"]; ?>
+                        </p><br />
+                        <label>Collection: </label>
+                        <p id="collection">
+                            <?php echo $row["collect"]; ?>
+                        </p><br />
+                        <div class="show-seller-details">
+                            <button onclick="showDiv('toggle<?php echo $row['listing_id']; ?>')">Show contact
+                                details</button>
+                            <button onclick="hideDiv('toggle<?php echo $row['listing_id']; ?>')">Hide
+                                details</button>
+                        </div>
+                        <div id="toggle<?php echo $row["listing_id"]; ?>" style="display:none" class="sub-menu-wrap">
+                            <div class="sub-menu">
+                                <div class="user-info">
+                                    <h2>
+                                        <?php
+                                        echo $contact_row["fName"];
+                                        ?>
+                                        <?php
+                                        echo $contact_row["lName"];
+                                        ?>
+                                    </h2>
+                                    <hr>
+                                    <h3>Details:</h3>
+                                </div>
+                                <label>Cell number: </label>
+                                <p id="cellNum">
+                                    <?php
+                                    echo $contact_row["cellNum"];
+                                    ?>
+                                </p><br />
+                                <label>Email: </label>
+                                <p id="email">
+                                    <?php
+                                    echo $contact_row["email"];
+                                    ?>
+                                </p><br />
+                                <label>Contact Preference: </label>
+                                <p id="contactMeth">
+                                    <?php
+                                    echo $contact_row["contactMeth"];
+                                    ?>
+                                </p><br />
+                            </div>
+                        </div>
                     </div>
-                    <a href="#" class="view-add-btn">View Add</a>
                 </div>
                 <?php
             }
             ?>
         </div>
-    </div>
 
 
-    <footer>
-        <div class="footer-container">
-            <div class="footer-content">
-                <p>&copy; 2023 Bookstore. All rights reserved.</p>
-                <ul class="footer-links">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
+        <footer>
+            <div class="footer-container">
+                <div class="footer-content">
+                    <p>&copy; 2023 Bookstore. All rights reserved.</p>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </footer>
+        </footer>
 
-    <?php
+        <script>
+            function showDiv(toggleID) {
+                document.getElementById(toggleID).style.display = 'block';
+            }
 
-
-
-    ?>
+            function hideDiv(toggleID) {
+                document.getElementById(toggleID).style.display = 'none';
+            }
+        </script>
 </body>
 
 </html>

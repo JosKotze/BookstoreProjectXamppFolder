@@ -910,11 +910,11 @@ Reviewed till here
   color: #333;
   padding: 10px;
   border: none;
-  border-radius: 5px;
-  cursor: pointer;
+  border-radius: 12px;
   margin-top: 6px;
-  margin-bottom: 4px;
-  margin-left: 4px;
+  cursor: pointer;
+  width: 150px;
+  height: 40px;
 }
 
 .show-seller-details button:hover{
